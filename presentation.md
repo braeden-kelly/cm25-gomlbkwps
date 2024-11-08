@@ -29,4 +29,25 @@ Anytime I say the following terms, this is what I mean.
 - "Directory" is a "folder" that you use to store files in.
 - "Change" is an addition, deletion, or modification to file(s).
 
+#### Version Control
+
+A system to track different versions of files. Specifically, Git makes the below tasks relatively easy.
+
+- [Undo a specific change or all changes back to a prior version](#undo-changes).
+- [Handle non-linear development](#non-linear-development).
+- [Collaborate with your team without copy/pasting files](#collaborate).
+- [Audit who modified code and when they did it](#audit-code).
+- [Keep history on each machine in case the server hosting the code dies](#migration).
+
 ## Problems & Solutions
+
+### Undo Changes
+
+### Non-Linear Development
+
+### Collaborate
+
+
+### Audit Code
+
+### Migration
