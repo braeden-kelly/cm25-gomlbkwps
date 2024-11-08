@@ -18,4 +18,15 @@ Finally, I will leave 10 minutes open at the end for questions.
 
 ## Prerequisite Knowledge
 
+### Definitions
+
+Anytime I say the following terms, this is what I mean.
+
+- "Client" is the tool used to run Git commands. This can be a command line or graphical interface. Below are some of the many options to use as clients in the order I recommend them in.
+    1. [Sublime Merge](https://www.sublimemerge.com/).
+    2. [Git CLI](https://git-scm.com/downloads).
+    3. [Built-in VS Code collaboration tools](https://code.visualstudio.com/).
+- "Directory" is a "folder" that you use to store files in.
+- "Change" is an addition, deletion, or modification to file(s).
+
 ## Problems & Solutions
