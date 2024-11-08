@@ -69,6 +69,23 @@ File has changes that will not go into the next commit.
 
 Change that will go into the next commit.
 
+### Commands
+
+Commands in this section are in alphabetical order and will use `<>` to wrap sections of code that you should replace and `[<>]` to denote optional parameters.
+
+[Click here for in-dept command documentation](https://git-scm.com/docs/git#_git_commands), but the minimal set of commands below has been enough for me over the past 8 years.
+
+#### Git Clone
+
+[Git Clone Documentation](https://git-scm.com/docs/git-clone).
+
+Used to clone/copy/download an existing codebase from a server hosting a Git repository.
+
+`git clone <repository url> [<directory name>]`.
+- `<repository url>` where the git repository is stored.
+- `[<directory name>]` (optional) to place the cloned repository into.
+    - **Note**: Defaults to `<repository name>` if not provided.
+
 ## Problems & Solutions
 
 ### Undo Changes
