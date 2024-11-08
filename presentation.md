@@ -5,3 +5,17 @@ If you write code, you're likely using Git. If not, you probably should be—unl
 In this session, we’ll bridge that gap. We’ll tackle common Git challenges, dive into practical solutions, and dissect the mechanics behind each approach. You'll learn the pros and cons of different strategies and gain actionable insights to resolve frequent issues faced by you and your team during collaboration.
 
 By the end of this session, you'll be equipped with the skills and confidence to handle Git more effectively and improve your development workflow.
+
+## Introduction
+
+Most of the information used in this presentation was found in the [Pro Git book](https://git-scm.com/book/en/v2).
+
+I will start with quickly running through [prerequisite knowledge](#prerequisite-knowledge) for 15 minutes for those with shaky Git foundations.
+
+Next, we can use that knowledge to work through [problems & solutions](#problems--solutions) for 35 minutes.
+
+Finally, I will leave 10 minutes open at the end for questions.
+
+## Prerequisite Knowledge
+
+## Problems & Solutions
