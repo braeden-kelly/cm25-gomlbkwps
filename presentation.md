@@ -39,6 +39,36 @@ A system to track different versions of files. Specifically, Git makes the below
 - [Audit who modified code and when they did it](#audit-code).
 - [Keep history on each machine in case the server hosting the code dies](#migration).
 
+#### Four States Of Files
+
+> [!WARNING]
+> A "Staged" file can be "Modified" at the same time if it has unstaged changes.
+> This happens when a "Staged" file is modfied after being staged or if you state specific sections with a tool like VS Code or Sublime Merge.
+
+![600](https://git-scm.com/book/en/v2/images/lifecycle.png)
+
+##### Untracked
+
+Git has not been told to track the file.
+
+> [!NOTE]
+> Untracked files do not display in `git status` if they match a path in `.gitignore`.
+
+##### Unmodified
+
+No changes have been made since the last commit/stage.
+
+> [!NOTE]
+> Unmodified files do not display in `git status`.
+
+##### Modified
+
+File has changes that will not go into the next commit.
+
+##### Staged
+
+Change that will go into the next commit.
+
 ## Problems & Solutions
 
 ### Undo Changes
