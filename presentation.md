@@ -22,12 +22,15 @@ Finally, I will leave 10 minutes open at the end for questions.
 
 Anytime I say the following terms, this is what I mean.
 
+- "Change" is an addition, deletion, or modification to file(s).
 - "Client" is the tool used to run Git commands. This can be a command line or graphical interface. Below are some of the many options to use as clients in the order I recommend them in.
     1. [Sublime Merge](https://www.sublimemerge.com/).
     2. [Git CLI](https://git-scm.com/downloads).
     3. [Built-in VS Code collaboration tools](https://code.visualstudio.com/).
 - "Directory" is a "folder" that you use to store files in.
-- "Change" is an addition, deletion, or modification to file(s).
+- "Head" is the currently checked out version of a repository.
+- "Local" refers to directories, files, & repositories stored on your computer opposed to "Remote".
+- "Remote" refers to directories, files, & repositories stored on a server.
 
 #### Version Control
 
@@ -86,7 +89,40 @@ Used to clone/copy/download an existing codebase from a server hosting a Git rep
 - `[<directory name>]` (optional) to place the cloned repository into.
     - **Note**: Defaults to `<repository name>` if not provided.
 
+#### Git Init
+
+[Git Init Documentation](https://git-scm.com/docs/git-init).
+
+Used to turn a local directory into a Git repository.
+
+> [!WARNING]
+> This turns the current directory into a repository. If you want a subdirectory, then create it, move into it, and run the command there.
+
+`git init`.
+
 ## Problems & Solutions
+
+### Create Git Repository
+
+A Git repository (often called a repo), looks like a normal directory with a `.git` subdirectory in it. How you go about initializing your repository depends on whether you want to base it off from an existing codebase or a local directory.
+
+#### Clone An Existing Codebase
+
+Cloning a Git repository from a remote server can be done using the [git clone command](#git-clone).
+
+This will create a new directory with the same name as the repository and place the contents in the directory.
+
+```bash
+git clone git@github.com:DustinMEastway/git-on-my-level.git
+```
+
+#### Initialize From A Directory
+
+Creating a Git repostiroy from a local directory (even if it is empty) can be done using the [git init command](#git-init).
+
+```bash
+git init
+```
 
 ### Undo Changes
 
