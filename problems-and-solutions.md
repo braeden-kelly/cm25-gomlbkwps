@@ -1,7 +1,9 @@
 # Problems & Solutions
 
-> [!IMPORTANT]
+> [!NOTE]
 > Most of the below problems/solutions assume you have a local repository already with the exception of [Create Git Repository](#create-git-repository) which helps you create a local repository.
+>
+> Code will use `<>` to wrap sections of code that you should replace and `[]` to denote optional segments.
 
 ## Create Git Repository
 
@@ -59,11 +61,70 @@ Use the [git branch command](./commands.md#git-branch) with the `--remote` (or `
 git branch --remote
 ```
 
-## Handle Untracked Files
+## Add Files To Repository
 
-### Add Files To Repository
+> [!TIP]
+> For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
 
-### Ignore Files From Repository
+Use [git add](https://git-scm.com/docs/git-add) to move the [untracked](./terminology.md#untracked) changes of adding the file(s) to [staged](./terminology.md#staged) for the next time you [save your changes](./problems-and-solutions.md#save-changes).
+
+```bash
+git add <path to file(s)>
+```
+
+> [!TIP]
+> To undo this action see "[undo staged changes](problems-and-solutions.md#undo-staged-changes)".
+
+## Removing Files From Repository
+
+Sometimes you want to have files in your repository without having them checked in to share with others.
+
+For example, environment files may contain private values that you do not want checked in.
+
+### Ignoring Untracked Files
+
+Create a [.gitignore file](https://git-scm.com/docs/gitignore) and add patterns that match files you wish for Git to ignore instead of displaying as [untracked](./terminology.md#untracked).
+
+> [!IMPORTANT]
+> `.gitignore` only works on [untracked](./terminology.md#untracked) files. If you already [staged](./terminology.md#staged) or [committed](./terminology.md#commit) a file you wish to ignore, then follow the "[ignoring committed/staged files](./problems-and-solutions.md#ignoring-committedstaged-files)" solution.
+
+```bash
+# Lines starting with "#" are comments.
+
+# Use the name of a file/directory to ignore it.
+# Ignore all files, nested files, & subdirectories called ".DS_Store".
+.DS_Store
+
+# Use "\" to escape special characters ("#", "*", "?") in file names.
+# Ignore all files, nested files, & subdirectories called "my#special?file*".
+my\#special\?file\*
+
+# Use "/" to the end of a pattern ignores directories, but not files.
+# Ignore all subdirectories named "node_modules".
+node_modules/
+
+# Use "/" to the beginning or middle of a pattern makes the path relative to the current ".gitignore" file.
+# Ignore the "generated" subdirectory at the same level as the ".gitignore" file.
+/generated/
+```
+
+### Ignoring Committed/Staged Files
+
+`.gitignore` only works on [untracked](./terminology.md#untracked) files. If you already [staged](./terminology.md#staged) or [committed](./terminology.md#commit) a file then do the following.
+
+1. Rename the file(s) to temporary name(s).
+
+2. Use [git add](https://git-scm.com/docs/git-add) to move the [untracked](./terminology.md#untracked) changes of removing the file(s) (not adding the temporary file(s)) to [staged](./terminology.md#staged).
+
+```bash
+git add <path to file(s)>
+```
+
+3. Rename the file(s) back to the original name(s).
+
+4. Now that you have staged their deletions, the files will show up as [untracked](./terminology.md#untracked) which means you can use the "[ignoring untracked files](./problems-and-solutions.md#ignoring-untracked-files)" solution.
+
+## Save Changes
 
 ## Undo Changes
 

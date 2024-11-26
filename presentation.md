@@ -12,7 +12,7 @@ Most of this presentation's information was found in the [Pro Git book](https://
 
 I will start with quickly running through prerequisite [terminology](#terminology) for 15 minutes for those that have no desire to read a book on Git.
 
-Next, we can use that knowledge to work through [problems & solutions](#problems--solutions) for 35 minutes.
+Next, we can use that knowledge to work through [problems & solutions](#problems--solutions) for 35 minutes only introducing [commands](./commands.md) as they are used to solve problems instead of them being the focus.
 
 Finally, I will leave 10 minutes open at the end for questions.
 

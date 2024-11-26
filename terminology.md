@@ -1,16 +1,45 @@
 # Terminology
 
-Anytime I say the following terms, this is what I mean.
+## General
 
-- "Change" is an addition, deletion, or modification to file(s).
-- "Client" is the tool used to run Git commands. This can be a command line or graphical interface. Below are some of the many options to use as clients in the order I recommend them in.
-    1. [Sublime Merge](https://www.sublimemerge.com/).
-    2. [Git CLI](https://git-scm.com/downloads).
-    3. [Built-in VS Code collaboration tools](https://code.visualstudio.com/).
-- "Directory" is a "folder" that you use to store files in.
-- "Head" is the currently checked out version of a repository.
-- "Local" refers to directories, files, & repositories stored on the computer you develop on opposed to "Remote".
-- "Remote" refers to a server that can serve as the common source of truth for the Git repository that you and your team are working on.
+### Directory
+
+This concept is basically the same as the one you think of when you think of a "folder" to store files in.
+
+> [!NOTE]
+> To see why I prefer this term over "folder", read the [folder metaphor on Wikipedia](https://en.wikipedia.org/wiki/Directory_%28computing%29#Folder_metaphor).
+
+### Change
+
+An addition, deletion, or modification to file(s) in the repository.
+
+> [!NOTE]
+> You can not save an empty directory. You add files which will bring their directories if they are nested in them.
+
+### Commit
+
+A saved state of files in the repository including auxiliary information like author & date of the save.
+
+### Head
+
+The currently checked out (loaded) version (save) of a repository.
+
+### Local
+
+Refers to directories, files, & repositories stored on the computer you develop on opposed to [remote](#remote).
+
+### Remote
+
+Refers to a server that can serve as the common source of truth for the Git repository that you (and your team, if applicable) are working on [locally](#local).
+
+### Client
+
+The tool used to run Git commands. This can be a command line or graphical user interface.
+
+Below are some of the many options to use as clients in order of how much I like them.
+1. [Sublime Merge](https://www.sublimemerge.com/).
+2. [Git CLI](https://git-scm.com/downloads).
+3. [Built-in VS Code collaboration tools](https://code.visualstudio.com/).
 
 ## Version Control
 
@@ -51,3 +80,16 @@ File has changes that will not go into the next commit.
 ### Staged
 
 Change that will go into the next commit.
+
+### Ignored
+
+[Git .gitignore Documentation](https://git-scm.com/docs/gitignore).
+
+Ignored files are [untracked](#untracked) and match a patern in the `.gitignore` which tells Git to hide them from the [status command](commands.md#git-status) instead of showing them as [untracked](#untracked).
+
+In addition (pun intended), [add command](commands.md#git-add) will not add ignored files unless you specifically add them and use a flag to force the matter.
+
+See [ignoring untracked files](./problems-and-solutions.md#ignoring-untracked-files) for more information on using `.gitignore`.
+
+> [!IMPORTANT]
+> `.gitignore` only works on [untracked](#untracked) files. If you already [staged](#staged) or [committed](#commit) a file you wish to ignore, then follow the "[ignoring committed/staged files](./problems-and-solutions.md#ignoring-committedstaged-files)" solution.

@@ -1,12 +1,17 @@
 # Commands
 
-Commands in this section are in alphabetical order and will use `<>` to wrap sections of code that you should replace and `[]` to denote optional segments.
+> [!NOTE]
+> Commands in this section are in alphabetical order and will use `<>` to wrap sections of code that you should replace and `[]` to denote optional segments.
 
 [Click here for in-dept command documentation](https://git-scm.com/docs/git#_git_commands), but the minimal set of commands below has been enough for me over the past 8 years.
 
 ## Essential Commands
 
 ### Git Add
+
+[Git Add Documentation](https://git-scm.com/docs/git-add).
+
+Moves both [untracked](./terminology.md#untracked) & [modified](./terminology.md#modified) files to the list of [staged](./terminology.md#staged) files in preparation for the next [commit command](#git-commit).
 
 ### Git Branch
 
@@ -16,7 +21,7 @@ Used to display the list of local or remote (see `--remote`) branches.
 
 `git branch [--remote]`
 - `[--remote]` (`-r`) displays branches on all remote repositories that your local repository is connected to.
-    - **Note**: This list is based on the last time your local repository got information from the remote repository. If you want an updated list, use [fetch](#git-fetch) or [pull](#git-pull) before running this command.
+    - **Note**: This list is based on the last time your local repository got information from the remote repository. If you want an updated list, use [fetch command](#git-fetch) or [pull command](#git-pull) before running this command.
 
 ### Git Cherry Pick
 
@@ -77,7 +82,7 @@ Used to turn a local directory into a Git repository.
 ### Git Checkout
 
 This command had many different uses depending on its context. I recommend using the below alternatives that specialize in specific
-- Use [git switch](#git-switch) to change branches.
+- Use the [switch command](#git-switch) to change branches.
 - TODO: What else was added to replace this?
 
 ### Git Move
