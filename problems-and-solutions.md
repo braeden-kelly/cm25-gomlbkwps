@@ -154,6 +154,21 @@ git add <path to file(s)>
 
 ## Save Changes
 
+To save a change, you must first use [git add](./commands.md#git-add) to move the [untracked](./terminology.md#untracked-change) or [unstaged](./terminology.md#unstaged-change) change to the [staged](./terminology.md#staged-change) state.
+
+> [!TIP]
+> For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
+
+```bash
+git add <path to file(s)>
+```
+
+Then use [git commit](./commands.md#git-commit) move the changes to a [committed](./terminology.md#committed-change) state.
+
+```bash
+git commit -m "<message>"
+```
+
 ## Undo Changes
 
 ### Undo Committed Changes

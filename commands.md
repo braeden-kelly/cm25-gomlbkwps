@@ -11,7 +11,7 @@
 
 [Official Git Add Documentation](https://git-scm.com/docs/git-add).
 
-Moves both [untracked](./terminology.md#untracked) & [modified](./terminology.md#modified) files to the list of [staged](./terminology.md#staged) files in preparation for the next [commit command](#git-commit).
+Moves all [untracked](./terminology.md#untracked-change) & [unstaged](./terminology.md#unstaged-change) changes in added [untracked](./terminology.md#untracked) & [modified](./terminology.md#modified) files to the list of [staged](./terminology.md#staged-change) changes in preparation for the next [commit command](#git-commit).
 
 > [!TIP]
 > For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
@@ -30,7 +30,8 @@ Used to display the list of local or remote (see `--remote`) branches.
 ```bash
 git branch
 ```
-- `[--remote]` (`-r`) displays branches on all remote repositories that your local repository is connected to.
+- `[--remote]` displays branches on all remote repositories that your local repository is connected to.
+    - **Alias(es)** `-r`.
     - **Note**: This list is based on the last time your local repository got information from the remote repository. If you want an updated list, use [fetch command](#git-fetch) or [pull command](#git-pull) before running this command.
 
 ### Git Cherry Pick
@@ -50,6 +51,21 @@ git clone <repository url> [<directory name>]
 
 ### Git Commit
 
+[Official Git Commit Documentation](https://git-scm.com/docs/git-commit).
+
+Used to put all [staged changes](./terminology.md#staged-change) into a [committed](./terminology.md#committed-change) state.
+
+> [!TIP]
+> The commit command only [commits](./terminology.md#committed-change) [staged changes](./terminology.md#staged-change), so make sure to use the [add command](#git-add) before using it.
+
+```bash
+git commit
+```
+- `--message="<message>"` adds a line to the commit message instead of bringing the editor up.
+    - **Alias(es)**: `-m "<message>"`.
+        - **Note**: This alias requires a space instead of an equal sign before the message.
+    - **Note**: Technically the quotes are not required, but I recommend always adding them to keep messages with spaces together.
+
 ### Git Diff
 
 [Official Git Diff Documentation](https://git-scm.com/docs/git-diff).
@@ -63,7 +79,8 @@ Used to display changed lines in [modified](./terminology.md#modified) (use `--s
 git diff [<path to file(s)>]
 ```
 - `[<path to file(s)>]` you wish diff (default: diff all files).
-- `--staged` (`--cached`) display [staged](./terminology.md#staged) changes instead of [modified](./terminology.md#modified) changes.
+- `--staged` display [staged](./terminology.md#staged) changes instead of [modified](./terminology.md#modified) changes.
+    - **Alias(es)** `--cached`.
 
 ### Git Fetch
 
@@ -74,7 +91,8 @@ Updates its information (branches, commits, etc.) of the remote repository your 
 ```bash
 git fetch
 ```
-- `[--prune]` (`-p`) In addition to getting missing information it also removes local information (branches, commits, etc.) about items removed from the remote repository.
+- `[--prune]` In addition to getting missing information it also removes local information (branches, commits, etc.) about items removed from the remote repository.
+    - **Alias(es)** `-p`.
     - **Note**: I always want my `git fetch` to prune deleted information, so I used `git config fetch.prune true` to make that happen without needing to type `-p` every time.
 
 ### Git Init
