@@ -192,6 +192,21 @@ This command had many different uses depending on its context. I recommend using
 
 ### Git Remove
 
+[Official Git Remove Documentation](https://git-scm.com/docs/git-rm).
+
+Used to delete file(s) & [stage](./terminology.md#staged) them with a single command.
+
+> [!NOTE]
+> This is not essential because you are likely to delete files in the tool you use to edit code, then use [git add](#git-add) to stage files afterwards.
+
+> [!TIP]
+> For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
+
+```bash
+git rm <path to file(s)>
+```
+- `<path to file(s)>` you wish to delete & [stage](./terminology.md#staged).
+
 ### Git Reset
 
 ### Git Restore

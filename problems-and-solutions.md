@@ -147,7 +147,7 @@ git diff <commit> [<path to file(s)>]
     - Use `<start commit hash>~ <end commit hash>` to display all changes in the commit with `<start commit hash>`, the commit with `<end commit hash>` and all commits between them.
 - `[<path to file(s)>]` you wish diff (default: diff all files).
 
-## Add Files To Repository
+## Adding Files
 
 > [!TIP]
 > For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
@@ -157,11 +157,45 @@ Use [git add](./commands.md#git-add) to move the [untracked](./terminology.md#un
 ```bash
 git add <path to file(s)>
 ```
+- `<path to file(s)>` you wish to [stage](./terminology.md#staged).
 
 > [!TIP]
 > To undo this action see "[undo staged changes](problems-and-solutions.md#undo-staged-changes)".
 
-## Removing Files From Repository
+## Deleting Files
+
+> [!NOTE]
+> If you wish to remove file(s) from Git, but keep them locally, see the [ignoring file(s) solution](#ignoring-files).
+
+> [!TIP]
+> For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
+
+While you can use [git rm](./commands.md#git-remove) to delete & [stage](./terminology.md#staged) file(s) at the same time, I recommend against it.
+
+```bash
+git rm <path to file(s)>
+```
+- `<path to file(s)>` you wish to delete & [stage](./terminology.md#staged).
+
+Instead delete file(s) using whatever tool you use to edit code, then using [git add](./commands.md#git-add) to [stage](./terminology.md#staged) them.
+
+> [!NOTE]
+> It may seem odd to use a command called "add" to delete a file, but this is another point in favor of thinking about [states of changes](./terminology.md#four-states-of-changes) instead of [states of files](./terminology.md#four-states-of-files) because the "add" is adding the change(s) which are removing the file(s).
+
+The upside of this approach is that it more closely aligns with most people's workflow and the steps are consistent regardless of the [state of file(s)](./terminology.md#four-states-of-files) unlike [git rm](./commands.md#git-remove) which behaves differently depending on state of the file(s) being removed.
+
+A potential downside of this approach is that you will not get a warning if you have [staged](./terminology.md#staged-change) changes on file(s) that you may want to [commit/save](#save-changes), then delete in a followup commit in case you want to go back to that state later.
+This has not been an issue for me as I pay extra attention before deleting files in general and my editor moves deleted files into a trash that I can recover them from.
+
+```bash
+git add <path to file(s)>
+```
+- `<path to file(s)>` you wish to [stage](./terminology.md#staged).
+
+## Ignoring Files
+
+> [!NOTE]
+> If you wish to remove file(s) from Git and remove them locally, see the [deleting file(s) solution](#deleting-files).
 
 Sometimes you want to have files in your repository without having them checked in to share with others.
 
