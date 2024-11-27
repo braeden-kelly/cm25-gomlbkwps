@@ -1,9 +1,26 @@
 # Problems & Solutions
 
+> [!IMPORTANT]
+> Commands use `<>` to wrap sections of code that you should replace and `[]` to denote optional segments.
+>
+> Shorthand aliases (one "-" instead of "--") require a space instead of an equal sign when they accept values.
+> Some commands (such as [git log](#git-log)) accept an even shorter alias where you can pass the value directly after a single "-" without a space.
+>
+> For example, all of the below commands log up to 3 of the last commits.
+> ```bash
+> git log --max-count=3
+> git log -n 3
+> git log -3
+> ```
+>
+> For commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
+>
+> For commands that accept commit hash(es) (or [HEAD](./terminology.md#head)) you can use `<commit hash>~<number>` to go back a `<number>` of commits from `<commit hash>` or the shorthand `<commit hash>~` to go back one.
+
 > [!NOTE]
 > Most of the below problems/solutions assume you have a local repository already with the exception of [Create Git Repository](#create-git-repository) which helps you create a local repository.
 >
-> Code will use `<>` to wrap sections of code that you should replace and `[]` to denote optional segments.
+> Solutions are roughly in the order I would expect you to run into the problems, but this is difficult to fully predict.
 
 ## Create Git Repository
 

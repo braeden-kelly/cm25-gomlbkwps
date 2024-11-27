@@ -1,9 +1,26 @@
 # Commands
 
-> [!NOTE]
-> Commands in this section are in alphabetical order and will use `<>` to wrap sections of code that you should replace and `[]` to denote optional segments.
+[Click here for the official command documentation](https://git-scm.com/docs/git#_git_commands), but the minimal set of commands below has been enough for me since I started using Git in 2018 (or earlier).
 
-[Click here for in-dept command documentation](https://git-scm.com/docs/git#_git_commands), but the minimal set of commands below has been enough for me over the past 8 years.
+> [!IMPORTANT]
+> Commands use `<>` to wrap sections of code that you should replace and `[]` to denote optional segments.
+>
+> Shorthand aliases (one "-" instead of "--") require a space instead of an equal sign when they accept values.
+> Some commands (such as [git log](#git-log)) accept an even shorter alias where you can pass the value directly after a single "-" without a space.
+>
+> For example, all of the below commands log up to 3 of the last commits.
+> ```bash
+> git log --max-count=3
+> git log -n 3
+> git log -3
+> ```
+>
+> For commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
+>
+> For commands that accept commit hash(es) (or [HEAD](./terminology.md#head)) you can use `<commit hash>~<number>` to go back a `<number>` of commits from `<commit hash>` or the shorthand `<commit hash>~` to go back one.
+
+> [!NOTE]
+> Commands in this section are in alphabetical order.
 
 ## Essential Commands
 
@@ -61,9 +78,8 @@ Used to put all [staged changes](./terminology.md#staged-change) into a [committ
 ```bash
 git commit
 ```
-- `--message="<message>"` adds a line to the commit message instead of bringing the editor up.
+- `[--message="<message>"]` adds a line to the commit message instead of bringing the editor up.
     - **Alias(es)**: `-m "<message>"`.
-        - **Note**: This alias requires a space instead of an equal sign before the message.
     - **Note**: Technically the quotes are not required, but I recommend always adding them to keep messages with spaces together.
 
 ### Git Diff
@@ -79,7 +95,7 @@ Used to display changed lines in [modified](./terminology.md#modified) (use `--s
 git diff [<path to file(s)>]
 ```
 - `[<path to file(s)>]` you wish diff (default: diff all files).
-- `--staged` display [staged](./terminology.md#staged) changes instead of [modified](./terminology.md#modified) changes.
+- `[--staged]` display [staged](./terminology.md#staged) changes instead of [modified](./terminology.md#modified) changes.
     - **Alias(es)** `--cached`.
 
 ### Git Fetch
