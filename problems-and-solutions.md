@@ -61,12 +61,40 @@ Use the [git branch command](./commands.md#git-branch) with the `--remote` (or `
 git branch --remote
 ```
 
+### Display Changes
+
+#### Display Unstaged Changes
+
+Use [git diff](./commands.md#git-diff) to display changed lines in [modified](./terminology.md#modified) files.
+
+Optionally, pass file(s) as a final parameter to limit output to changes made in those files.
+
+> [!TIP]
+> For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
+
+```bash
+git diff [<path to file(s)>]
+```
+- `[<path to file(s)>]` you wish diff (default: diff all files).
+
+#### Display Staged Changes
+
+Use [git diff](./commands.md#git-diff) with the `--staged` flag to display changed lines in [staged](./terminology.md#staged) files.
+
+> [!TIP]
+> For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
+
+```bash
+git diff --staged [<path to file(s)>]
+```
+- `[<path to file(s)>]` you wish diff (default: diff all files).
+
 ## Add Files To Repository
 
 > [!TIP]
 > For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
 
-Use [git add](https://git-scm.com/docs/git-add) to move the [untracked](./terminology.md#untracked) changes of adding the file(s) to [staged](./terminology.md#staged) for the next time you [save your changes](./problems-and-solutions.md#save-changes).
+Use [git add](./commands.md#git-add) to move the [untracked](./terminology.md#untracked) changes of adding the file(s) to [staged](./terminology.md#staged) for the next time you [save your changes](./problems-and-solutions.md#save-changes).
 
 ```bash
 git add <path to file(s)>
@@ -114,7 +142,7 @@ node_modules/
 
 1. Rename the file(s) to temporary name(s).
 
-2. Use [git add](https://git-scm.com/docs/git-add) to move the [untracked](./terminology.md#untracked) changes of removing the file(s) (not adding the temporary file(s)) to [staged](./terminology.md#staged).
+2. Use [git add](./commands.md#git-add) to move the [untracked](./terminology.md#untracked) changes of removing the file(s) (not adding the temporary file(s)) to [staged](./terminology.md#staged).
 
 ```bash
 git add <path to file(s)>

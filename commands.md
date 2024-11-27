@@ -52,6 +52,19 @@ git clone <repository url> [<directory name>]
 
 ### Git Diff
 
+[Official Git Diff Documentation](https://git-scm.com/docs/git-diff).
+
+Used to display changed lines in [modified](./terminology.md#modified) (use `--staged` for [staged](./terminology.md#staged)) files.
+
+> [!TIP]
+> For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
+
+```bash
+git diff [<path to file(s)>]
+```
+- `[<path to file(s)>]` you wish diff (default: diff all files).
+- `--staged` (`--cached`) display [staged](./terminology.md#staged) changes instead of [modified](./terminology.md#modified) changes.
+
 ### Git Fetch
 
 [Official Git Fetch Documentation](https://git-scm.com/docs/git-fetch).
@@ -90,6 +103,16 @@ git init
 ### Git Stash
 
 ### Git Status
+
+[Official Git Status Documentation](https://git-scm.com/docs/git-status).
+
+Used to display general information about your state in the current repository.
+
+It will display the current branch, how many commits ahead and/or behind the remote branch your local branch is, and your [untracked](./terminology.md#untracked), [modified](./terminology.md#modified), & [staged](./terminology.md#staged) file(s).
+
+```bash
+git status
+```
 
 ### Git Switch
 
