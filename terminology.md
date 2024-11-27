@@ -77,7 +77,7 @@ In addition (pun intended), [add command](commands.md#git-add) will not add igno
 See [ignoring untracked files](./problems-and-solutions.md#ignoring-untracked-files) for more information on using `.gitignore`.
 
 > [!TIP]
-> `.gitignore` only works on [untracked](#untracked) files. If you already [staged](#staged) or [committed](#commit) a file you wish to ignore, then follow the "[ignoring committed/staged files](./problems-and-solutions.md#ignoring-committedstaged-files)" solution.
+> `.gitignore` only works on [untracked](#untracked) files. If you already [staged](./terminology.md#staged-change) and/or [committed](./terminology.md#committed-change) changes in a file you wish to ignore, then follow the [ignoring committed/staged files solution](./problems-and-solutions.md#ignoring-committedstaged-files).
 
 ### Unmodified
 

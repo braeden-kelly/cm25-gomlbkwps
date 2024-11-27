@@ -114,7 +114,7 @@ For example, environment files may contain private values that you do not want c
 Create a [.gitignore file](https://git-scm.com/docs/gitignore) and add patterns that match files you wish for Git to ignore instead of displaying as [untracked](./terminology.md#untracked).
 
 > [!IMPORTANT]
-> `.gitignore` only works on [untracked](./terminology.md#untracked) files. If you already [staged](./terminology.md#staged) or [committed](./terminology.md#commit) a file you wish to ignore, then follow the "[ignoring committed/staged files](./problems-and-solutions.md#ignoring-committedstaged-files)" solution.
+> `.gitignore` only works on [untracked](./terminology.md#untracked) files. If you already [staged](./terminology.md#staged-change) and/or [committed](./terminology.md#committed-change) changes in a file you wish to ignore, then follow the [ignoring committed/staged files solution](./problems-and-solutions.md#ignoring-committedstaged-files).
 
 ```bash
 # Lines starting with "#" are comments.
@@ -150,7 +150,7 @@ git add <path to file(s)>
 
 3. Rename the file(s) back to the original name(s).
 
-4. Now that you have staged their deletions, the files will show up as [untracked](./terminology.md#untracked) which means you can use the "[ignoring untracked files](./problems-and-solutions.md#ignoring-untracked-files)" solution.
+4. Now that you have staged their deletions, the files will show up as [untracked](./terminology.md#untracked) which means you can use the [ignoring untracked files solution](./problems-and-solutions.md#ignoring-untracked-files).
 
 ## Save Changes
 
