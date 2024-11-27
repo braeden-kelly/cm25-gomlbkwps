@@ -190,6 +190,20 @@ This command had many different uses depending on its context. I recommend using
 
 ### Git Move
 
+> [!IMPORTANT]
+> Git does not directly track file movement (renaming is just moving) as you do it. Instead it looks at the content of added/deleted files in a commit to decide which ones match close enough for it to consider them a move/rename instead of a separate add change & delete change.
+>
+> This means that if you make many changes to a file's contents at the same time as you move it, it will be counted as adding a new file and will lose its history. Instead, move the file without changing its contents, [save your changes](./problems-and-solutions.md#save-changes), modify its contents, then [save your changes](./problems-and-solutions.md#save-changes) again.
+
+> [!NOTE]
+> To see why this command is not essential read the [moving/renaming a file solution](./problems-and-solutions.md#moving-renaming-a-file).
+
+```bash
+git mv <path to file> <new path to file>
+```
+- `<path to file>` you wish to move/rename.
+- `<new path to file>` you wish to create & [stage](./terminology.md#staged).
+
 ### Git Remove
 
 [Official Git Remove Documentation](https://git-scm.com/docs/git-rm).
@@ -197,7 +211,7 @@ This command had many different uses depending on its context. I recommend using
 Used to delete file(s) & [stage](./terminology.md#staged) them with a single command.
 
 > [!NOTE]
-> This is not essential because you are likely to delete files in the tool you use to edit code, then use [git add](#git-add) to stage files afterwards.
+> To see why this command is not essential read the [deleting files solution](./problems-and-solutions.md#deleting-files).
 
 > [!TIP]
 > For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.

@@ -177,7 +177,7 @@ git rm <path to file(s)>
 ```
 - `<path to file(s)>` you wish to delete & [stage](./terminology.md#staged).
 
-Instead delete file(s) using whatever tool you use to edit code, then using [git add](./commands.md#git-add) to [stage](./terminology.md#staged) them.
+Instead delete files using whatever tool you use to edit code, then using [git add](./commands.md#git-add) to [stage](./terminology.md#staged) them.
 
 > [!NOTE]
 > It may seem odd to use a command called "add" to delete a file, but this is another point in favor of thinking about [states of changes](./terminology.md#four-states-of-changes) instead of [states of files](./terminology.md#four-states-of-files) because the "add" is adding the change(s) which are removing the file(s).
@@ -243,6 +243,33 @@ git add <path to file(s)>
 3. Rename the file(s) back to the original name(s).
 
 4. Now that you have staged their deletions, the files will show up as [untracked](./terminology.md#untracked) which means you can use the [ignoring untracked files solution](./problems-and-solutions.md#ignoring-untracked-files).
+
+## Moving/Renaming A File
+
+> [!IMPORTANT]
+> Git does not directly track file movement (renaming is just moving) as you do it. Instead it looks at the content of added/deleted files in a commit to decide which ones match close enough for it to consider them a move/rename instead of a separate add change & delete change.
+>
+> This means that if you make many changes to a file's contents at the same time as you move it, it will be counted as adding a new file and will lose its history. Instead, move the file without changing its contents, [save your changes](#save-changes), modify its contents, then [save your changes](#save-changes) again.
+
+While you can use [git mv](./commands.md#git-move) to move & [stage](./terminology.md#staged) a file at the same time, I recommend against it.
+
+```bash
+git mv <path to file> <new path to file>
+```
+- `<path to file>` you wish to move/rename.
+- `<new path to file>` you wish to create & [stage](./terminology.md#staged).
+
+Instead move files using whatever tool you use to edit code, then using [git add](./commands.md#git-add) to [stage](./terminology.md#staged) deleting their old location and add their new location which does the same thing.
+
+The upside of this approach is that it more closely aligns with most people's workflow and the steps are consistent regardless of the [state of file(s)](./terminology.md#four-states-of-files) unlike [git mv](./commands.md#git-move) which behaves differently depending on state of the file being moved.
+
+A downside of this approach is that [git mv](./commands.md#git-move) keeps [committed changes](./committed-change), [staged changes](./staged-change) & [unstaged changes](./unstaged-change) exactly as they were at the old path when you move a file.
+I usually move files separately from modifying their content (recommended to keep Git from thinking it is an add & delete instead of a move), so this downside does not come into play for my workflow.
+
+```bash
+git add <path to file(s)>
+```
+- `<path to file(s)>` you wish to [stage](./terminology.md#staged).
 
 ## Save Changes
 
