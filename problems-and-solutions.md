@@ -37,7 +37,7 @@ This will tell you the current branch, how many commits ahead and/or behind it y
 git status
 ```
 
-### List Branches In Repository
+### List Branches
 
 #### List Local Branches
 

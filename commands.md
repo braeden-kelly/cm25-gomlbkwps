@@ -9,17 +9,27 @@
 
 ### Git Add
 
-[Git Add Documentation](https://git-scm.com/docs/git-add).
+[Official Git Add Documentation](https://git-scm.com/docs/git-add).
 
 Moves both [untracked](./terminology.md#untracked) & [modified](./terminology.md#modified) files to the list of [staged](./terminology.md#staged) files in preparation for the next [commit command](#git-commit).
 
+> [!TIP]
+> For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
+
+```bash
+git add <path to file(s)>
+```
+- `<path to file(s)>` you wish to [stage](./terminology.md#staged).
+
 ### Git Branch
 
-[Git Branch Documentation](https://git-scm.com/docs/git-branch).
+[Official Git Branch Documentation](https://git-scm.com/docs/git-branch).
 
 Used to display the list of local or remote (see `--remote`) branches.
 
-`git branch [--remote]`
+```bash
+git branch
+```
 - `[--remote]` (`-r`) displays branches on all remote repositories that your local repository is connected to.
     - **Note**: This list is based on the last time your local repository got information from the remote repository. If you want an updated list, use [fetch command](#git-fetch) or [pull command](#git-pull) before running this command.
 
@@ -27,11 +37,13 @@ Used to display the list of local or remote (see `--remote`) branches.
 
 ### Git Clone
 
-[Git Clone Documentation](https://git-scm.com/docs/git-clone).
+[Official Git Clone Documentation](https://git-scm.com/docs/git-clone).
 
 Used to clone/copy/download an existing codebase from a server hosting a Git repository.
 
-`git clone <repository url> [<directory name>]`.
+```bash
+git clone <repository url> [<directory name>]
+```
 - `<repository url>` where the git repository is stored.
 - `[<directory name>]` (optional) to place the cloned repository into.
     - **Note**: Defaults to `<repository name>` if not provided.
@@ -42,24 +54,28 @@ Used to clone/copy/download an existing codebase from a server hosting a Git rep
 
 ### Git Fetch
 
-[Git Fetch Documentation](https://git-scm.com/docs/git-fetch).
+[Official Git Fetch Documentation](https://git-scm.com/docs/git-fetch).
 
 Updates its information (branches, commits, etc.) of the remote repository your local repository is connected to.
 
-`git fetch [--prune]`
+```bash
+git fetch
+```
 - `[--prune]` (`-p`) In addition to getting missing information it also removes local information (branches, commits, etc.) about items removed from the remote repository.
     - **Note**: I always want my `git fetch` to prune deleted information, so I used `git config fetch.prune true` to make that happen without needing to type `-p` every time.
 
 ### Git Init
 
-[Git Init Documentation](https://git-scm.com/docs/git-init).
+[Official Git Init Documentation](https://git-scm.com/docs/git-init).
 
 Used to turn a local directory into a Git repository.
 
 > [!WARNING]
 > This turns the current directory into a repository. If you want a subdirectory, then create it, move into it, and run the command there.
 
-`git init`.
+```bash
+git init
+```
 
 ### Git Log
 
