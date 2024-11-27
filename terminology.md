@@ -55,7 +55,7 @@ A system to track different versions of files. Specifically, Git makes the below
 
 > [!IMPORTANT]
 > A "Staged" file can be "Modified" at the same time if it has unstaged changes.
-> This happens when a "Staged" file is modfied after being staged or if you state specific sections with a tool like VS Code or Sublime Merge.
+> This happens when a "Staged" file is modfied after being staged or if you stage specific sections with a tool like Sublime Merge or VS Code.
 
 ![600](https://git-scm.com/book/en/v2/images/lifecycle.png)
 
@@ -65,6 +65,19 @@ Git has not been told to track the file.
 
 > [!IMPORTANT]
 > Untracked files do not display in `git status` if they match a path in `.gitignore`.
+
+#### Ignored
+
+[Git .gitignore Documentation](https://git-scm.com/docs/gitignore).
+
+Ignored files are [untracked](#untracked) and match a patern in the `.gitignore` which tells Git to hide them from the [status command](commands.md#git-status) instead of showing them as [untracked](#untracked).
+
+In addition (pun intended), [add command](commands.md#git-add) will not add ignored files unless you specifically add them and use a flag to force the matter.
+
+See [ignoring untracked files](./problems-and-solutions.md#ignoring-untracked-files) for more information on using `.gitignore`.
+
+> [!TIP]
+> `.gitignore` only works on [untracked](#untracked) files. If you already [staged](#staged) or [committed](#commit) a file you wish to ignore, then follow the "[ignoring committed/staged files](./problems-and-solutions.md#ignoring-committedstaged-files)" solution.
 
 ### Unmodified
 
@@ -79,17 +92,36 @@ File has changes that will not go into the next commit.
 
 ### Staged
 
-Change that will go into the next commit.
+File state set to go into the next commit.
 
-### Ignored
+## Four States Of Changes
 
-[Git .gitignore Documentation](https://git-scm.com/docs/gitignore).
+We usually think about adding/deleting/saving a full file, so it makes sense for that mindset to bleed over into how we think about Git.
 
-Ignored files are [untracked](#untracked) and match a patern in the `.gitignore` which tells Git to hide them from the [status command](commands.md#git-status) instead of showing them as [untracked](#untracked).
+That said, I recommend trying to think of Git files in terms of changes instead. This minor change in thinking makes the below concepts easier to understand.
+- A change can only be in one status unlike files which can be in multiple states at the same time.
+  - This even makes files being [modified](#modified) & [staged](#staged) at the same time easier to understand. It is because the file has two changes, one [staged](#staged-change) and one [unstaged](#unstaged-change).
+- [Unmodified](#unmodified) files actually represent to states. All changes in the file could be [staged](#staged-change) or [committed](#committed-change).
+- We can use the term "[unstaged](#unstaged-change)" for a change instead of "[modified](#modified)" like we do with files.
+  - This is better because most people's intuition would tell them that a [staged](#staged) file is "modified", but it is [unmodified](#unmodified) with the way we are using it.
+  - We should not use "unstaged" in place of "modified" for files because they can be [modified](#modified) & [staged](#staged) simultaneously which would make them "unstaged" & "staged" simultaneously.
 
-In addition (pun intended), [add command](commands.md#git-add) will not add ignored files unless you specifically add them and use a flag to force the matter.
+### Untracked Change
 
-See [ignoring untracked files](./problems-and-solutions.md#ignoring-untracked-files) for more information on using `.gitignore`.
+The change is adding a file that Git has not been told to track yet.
 
-> [!IMPORTANT]
-> `.gitignore` only works on [untracked](#untracked) files. If you already [staged](#staged) or [committed](#commit) a file you wish to ignore, then follow the "[ignoring committed/staged files](./problems-and-solutions.md#ignoring-committedstaged-files)" solution.
+#### Ignored Change
+
+The change exists within an [ignored file](#four-states-of-files#ignored).
+
+### Staged Change
+
+Change set to go into the next commit.
+
+### Unstaged Change
+
+Change made to an [unmodified](#four-states-of-files#unmodified) or [staged](#four-states-of-files#staged) file that has not been [staged](#staged-change) yet.
+
+### Committed Change
+
+Change already "saved" to history.
