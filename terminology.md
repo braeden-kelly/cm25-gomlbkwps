@@ -22,7 +22,9 @@ A saved state of files in the repository including auxiliary information like au
 
 ### Head
 
-The currently checked out (loaded) version (save) of a repository.
+The currently checked out (loaded) commit (save/version) of a repository.
+
+This can be accessed by commands that accept a commit hash using `HEAD` in place of the latest commit hash.
 
 ### Local
 
@@ -106,6 +108,9 @@ That said, I recommend trying to think of Git files in terms of changes instead.
   - This is better because most people's intuition would tell them that a [staged](#staged) file is "modified", but it is [unmodified](#unmodified) with the way we are using it.
   - We should not use "unstaged" in place of "modified" for files because they can be [modified](#modified) & [staged](#staged) simultaneously which would make them "unstaged" & "staged" simultaneously.
 
+> [!NOTE]
+> Adding & deleting a file should also be viewed as changes. The only difference is that adding starts as an [untracked change](#untracked-change) while deleting starts as an [unstaged change](#unstaged-change).
+
 ### Untracked Change
 
 The change is adding a file that Git has not been told to track yet.
@@ -124,4 +129,4 @@ Change made to an [unmodified](#four-states-of-files#unmodified) or [staged](#fo
 
 ### Committed Change
 
-Change already "saved" to history.
+Change already added to a [commit](#commit) to "save" it.

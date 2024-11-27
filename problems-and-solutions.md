@@ -78,6 +78,25 @@ Use the [git branch command](./commands.md#git-branch) with the `--remote` (or `
 git branch --remote
 ```
 
+### List Commits
+
+Use [git log](./commands.md#git-log) to display [commits](./terminology.md#commit) that exist on the current branch/[HEAD](./terminology.md#head).
+
+I primarily use this command to display commit hashes for other commands or messages, authors, & dates to make sure my history looks like I expect it to.
+
+```bash
+git log
+```
+- `[--graph]` Displays an ASCII graph of branch & merge history.
+    - `[--pretty=oneline]` pairs nicely with this command.
+- `[--max-count=<number>]` Limit the max number of commits displayed.
+    - **Alias(es)** `-n <number>`, `-<number>`.
+- `[--patch]` Used to display a diff with commit information, but I generally use [git diff](#git-diff) instead.
+- `[--pretty=<format>]` Used to change the amount & format of information displayed for each commit.
+    - **Note**: See [git log pretty formats](https://git-scm.com/docs/git-log#_pretty_formats) for official documentation on supported formats.
+    - Use `oneline` Displays the hash, branches pointing at the commit, & first line of message for each commit.
+    - Use `format:"%H %s"` Display the hash & first line of message for each commit.
+
 ### Display Changes
 
 #### Display Unstaged Changes
@@ -104,6 +123,28 @@ Use [git diff](./commands.md#git-diff) with the `--staged` flag to display chang
 ```bash
 git diff --staged [<path to file(s)>]
 ```
+- `[<path to file(s)>]` you wish diff (default: diff all files).
+- `[--staged]` display [staged](./terminology.md#staged) changes instead of [modified](./terminology.md#modified) changes.
+    - **Alias(es)** `--cached`.
+
+#### Display Committed Changes
+
+Use [git diff](./commands.md#git-diff) with the `[<commit>]` parameter to display [committed changes](./terminology.md#committed-change).
+
+> [!TIP]
+> For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
+
+> [!TIP]
+> For Git commands that accept commit hash(es) (or [HEAD](./terminology.md#head)) you can use `<commit hash>~<number>` to go back a `<number>` of commits from `<commit hash>` or the shorthand `<commit hash>~` to go back one.
+
+```bash
+git diff <commit> [<path to file(s)>]
+```
+- `[<commit>]` You can pass various configurations of commit hashes (IDs) to display changes relative to those commits.
+    - Use `<commit hash>` to display all changes since (but not including) the provided commit including your uncommitted work.
+    - Use `<commit hash>~` to display all changes in and since the provided commit including your uncommitted work.
+    - Use `<commit hash>~ <commit hash>` to display all changes in the provided commit.
+    - Use `<start commit hash>~ <end commit hash>` to display all changes in the commit with `<start commit hash>`, the commit with `<end commit hash>` and all commits between them.
 - `[<path to file(s)>]` you wish diff (default: diff all files).
 
 ## Add Files To Repository
@@ -179,12 +220,16 @@ To save a change, you must first use [git add](./commands.md#git-add) to move th
 ```bash
 git add <path to file(s)>
 ```
+- `<path to file(s)>` you wish to [stage](./terminology.md#staged).
 
 Then use [git commit](./commands.md#git-commit) move the changes to a [committed](./terminology.md#committed-change) state.
 
 ```bash
 git commit -m "<message>"
 ```
+- `[--message="<message>"]` adds a line to the commit message instead of bringing the editor up.
+    - **Alias(es)**: `-m "<message>"`.
+    - **Note**: Technically the quotes are not required, but I recommend always adding them to keep messages with spaces together.
 
 ## Undo Changes
 

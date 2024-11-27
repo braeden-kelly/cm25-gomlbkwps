@@ -33,6 +33,9 @@ Moves all [untracked](./terminology.md#untracked-change) & [unstaged](./terminol
 > [!TIP]
 > For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
 
+> [!WARNING]
+> You can pass "\*" as `<path to file(s)>` in the below command to stage all files, but I recommend against it because you are likely to stage unintended changes.
+
 ```bash
 git add <path to file(s)>
 ```
@@ -81,6 +84,9 @@ git commit
 - `[--message="<message>"]` adds a line to the commit message instead of bringing the editor up.
     - **Alias(es)**: `-m "<message>"`.
     - **Note**: Technically the quotes are not required, but I recommend always adding them to keep messages with spaces together.
+- `[--all]` [commits](./terminology.md#committed-change) all [unstaged changes](./terminology.md#unstaged-change) (but not [untracked changes](./terminology.md#untracked-change)) in additon to [staged changes](./terminology.md#staged-change).
+    - **Alias(es)**: `-a`.
+    - **Note**: I recommend against use of this flag. Most people regularly commit unintended changes due to using it.
 
 ### Git Diff
 
@@ -92,8 +98,13 @@ Used to display changed lines in [modified](./terminology.md#modified) (use `--s
 > For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
 
 ```bash
-git diff [<path to file(s)>]
+git diff [<commit>] [<path to file(s)>]
 ```
+- `[<commit>]` You can pass various configurations of commit hashes (IDs) to display changes relative to those commits.
+    - Use `<commit hash>` to display all changes since (but not including) the provided commit including your uncommitted work.
+    - Use `<commit hash>~` to display all changes in and since the provided commit including your uncommitted work.
+    - Use `<commit hash>~ <commit hash>` to display all changes in the provided commit.
+    - Use `<start commit hash>~ <end commit hash>` to display all changes in the commit with `<start commit hash>`, the commit with `<end commit hash>` and all commits between them.
 - `[<path to file(s)>]` you wish diff (default: diff all files).
 - `[--staged]` display [staged](./terminology.md#staged) changes instead of [modified](./terminology.md#modified) changes.
     - **Alias(es)** `--cached`.
@@ -125,6 +136,25 @@ git init
 ```
 
 ### Git Log
+
+[Official Git Log Documentation](https://git-scm.com/docs/git-log).
+
+This command displays information about [commits](./terminology.md#commit) from newest to oldest commit.
+
+Some information includes their message, author, & date as well as commit hashes which other commands like [git diff](#git-diff) can use to identify them.
+
+```bash
+git log
+```
+- `[--graph]` Displays an ASCII graph of branch & merge history.
+    - `[--pretty=oneline]` pairs nicely with this command.
+- `[--max-count=<number>]` Limit the max number of commits displayed.
+    - **Alias(es)** `-n <number>`, `-<number>`.
+- `[--patch]` Used to display a diff with commit information, but I generally use [git diff](#git-diff) instead.
+- `[--pretty=<format>]` Used to change the amount & format of information displayed for each commit.
+    - **Note**: See [git log pretty formats](https://git-scm.com/docs/git-log#_pretty_formats) for official documentation on supported formats.
+    - Use `oneline` Displays the hash, branches pointing at the commit, & first line of message for each commit.
+    - Use `format:"%H %s"` Display the hash & first line of message for each commit.
 
 ### Git Pull
 
