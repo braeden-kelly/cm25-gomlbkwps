@@ -8,7 +8,7 @@ By the end of this session, you'll be equipped with the skills and confidence to
 
 ## Introduction
 
-Most of this presentation's information was found in the [Pro Git book](https://git-scm.com/book/en/v2), its problems come from my career, and its solutions come from past tears I have shed.
+Most of this presentation's information was found in sections 1-3 of the [Pro Git book](https://git-scm.com/book/en/v2), its problems come from my career, and its solutions come from past tears I have shed.
 
 I will start with quickly running through prerequisite [terminology](#terminology) for 15 minutes for those that have no desire to read a book on Git.
 

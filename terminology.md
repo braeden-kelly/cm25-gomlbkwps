@@ -20,6 +20,18 @@ An addition, deletion, or modification to file(s) in the repository.
 
 A saved state of files in the repository including auxiliary information like author & date of the save.
 
+### Branch
+
+A human readable name attached to a specific [commit](#commit).
+
+### Author
+
+The person that wrote the code in a [commit](#commit).
+
+### Committer
+
+The person that committed the [commit](#commit). This is usually the same as [author](#author), but can be different when someone uses [git rebase](./commands.md#git-rebase) or someone merges code on someone else's behalf.
+
 ### Head
 
 The currently checked out (loaded) commit (save/version) of a repository.
@@ -39,9 +51,10 @@ Refers to a server that can serve as the common source of truth for the Git repo
 The tool used to run Git commands. This can be a command line or graphical user interface.
 
 Below are some of the many options to use as clients in order of how much I like them.
-1. [Sublime Merge](https://www.sublimemerge.com/).
-2. [Git CLI](https://git-scm.com/downloads).
-3. [Built-in VS Code collaboration tools](https://code.visualstudio.com/).
+1. [Sublime Merge](https://www.sublimemerge.com/) (freemium).
+2. [Git CLI](https://git-scm.com/downloads) (free).
+3. [Github Desktop](https://github.com/apps/desktop) (free).
+4. [Built-in VS Code collaboration tools](https://code.visualstudio.com/) (free).
 
 ## Version Control
 
@@ -58,6 +71,9 @@ A system to track different versions of files. Specifically, Git makes the below
 > [!IMPORTANT]
 > A "Staged" file can be "Modified" at the same time if it has unstaged changes.
 > This happens when a "Staged" file is modfied after being staged or if you stage specific sections with a tool like Sublime Merge or VS Code.
+
+> [!NOTE]
+> The below graphic was stolen from [Chapter 2.2 of the Pro Git book V2](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_recording_changes_to_the_repository).
 
 ![600](https://git-scm.com/book/en/v2/images/lifecycle.png)
 
@@ -119,13 +135,13 @@ The change is adding a file that Git has not been told to track yet.
 
 The change exists within an [ignored file](#four-states-of-files#ignored).
 
-### Staged Change
-
-Change set to go into the next commit.
-
 ### Unstaged Change
 
 Change made to an [unmodified](#four-states-of-files#unmodified) or [staged](#four-states-of-files#staged) file that has not been [staged](#staged-change) yet.
+
+### Staged Change
+
+Change set to go into the next commit.
 
 ### Committed Change
 

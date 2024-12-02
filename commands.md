@@ -15,6 +15,9 @@
 > git log -3
 > ```
 >
+> Some commands, such as [git diff](#git-diff) need some parameters in a specific order (`[<commit>]` must come before `[<path to file(s)>]` if both are specified).
+> In such cases, I list them in their required order below the command.
+>
 > For commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
 >
 > For commands that accept commit hash(es) (or [HEAD](./terminology.md#head)) you can use `<commit hash>~<number>` to go back a `<number>` of commits from `<commit hash>` or the shorthand `<commit hash>~` to go back one.
@@ -24,17 +27,22 @@
 
 ## Essential Commands
 
+These are the commands that you need to know how to use in order to get the most out of your use of Git.
+
 ### Git Add
 
 [Official Git Add Documentation](https://git-scm.com/docs/git-add).
 
 Moves all [untracked](./terminology.md#untracked-change) & [unstaged](./terminology.md#unstaged-change) changes in added [untracked](./terminology.md#untracked) & [modified](./terminology.md#modified) files to the list of [staged](./terminology.md#staged-change) changes in preparation for the next [commit command](#git-commit).
 
+> [!WARNING]
+> You can pass "\*" as `<path to file(s)>` in the below command to stage all files, but I recommend against it because you are likely to stage unintended changes.
+
 > [!TIP]
 > For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
 
-> [!WARNING]
-> You can pass "\*" as `<path to file(s)>` in the below command to stage all files, but I recommend against it because you are likely to stage unintended changes.
+> [!TIP]
+> To undo staging changes, use [git restore](#git-restore) with the `--staged` flag.
 
 ```bash
 git add <path to file(s)>
@@ -100,27 +108,16 @@ Used to display changed lines in [modified](./terminology.md#modified) (use `--s
 ```bash
 git diff [<commit>] [<path to file(s)>]
 ```
+- `[--staged]` display [staged](./terminology.md#staged) changes instead of [modified](./terminology.md#modified) changes.
+    - **Alias(es)** `--cached`.
+    - **Note**: Not compatible with `[<commit>]`.
 - `[<commit>]` You can pass various configurations of commit hashes (IDs) to display changes relative to those commits.
+    - **Note**: Not compatible with `[--staged]`.
     - Use `<commit hash>` to display all changes since (but not including) the provided commit including your uncommitted work.
     - Use `<commit hash>~` to display all changes in and since the provided commit including your uncommitted work.
     - Use `<commit hash>~ <commit hash>` to display all changes in the provided commit.
     - Use `<start commit hash>~ <end commit hash>` to display all changes in the commit with `<start commit hash>`, the commit with `<end commit hash>` and all commits between them.
 - `[<path to file(s)>]` you wish diff (default: diff all files).
-- `[--staged]` display [staged](./terminology.md#staged) changes instead of [modified](./terminology.md#modified) changes.
-    - **Alias(es)** `--cached`.
-
-### Git Fetch
-
-[Official Git Fetch Documentation](https://git-scm.com/docs/git-fetch).
-
-Updates its information (branches, commits, etc.) of the remote repository your local repository is connected to.
-
-```bash
-git fetch
-```
-- `[--prune]` In addition to getting missing information it also removes local information (branches, commits, etc.) about items removed from the remote repository.
-    - **Alias(es)** `-p`.
-    - **Note**: I always want my `git fetch` to prune deleted information, so I used `git config fetch.prune true` to make that happen without needing to type `-p` every time.
 
 ### Git Init
 
@@ -182,11 +179,34 @@ git status
 
 ## Extra Commands
 
+These commands could come in handy in specific situations, but are unlikely to to be needed in regular workflows.
+
+### Git Fetch
+
+[Official Git Fetch Documentation](https://git-scm.com/docs/git-fetch).
+
+Updates its information (branches, commits, etc.) of the remote repository your local repository is connected to.
+
+```bash
+git fetch
+```
+- `[--prune]` In addition to getting missing information it also removes local information (branches, commits, etc.) about items removed from the remote repository.
+    - **Alias(es)** `-p`.
+    - **Note**: I always want my `git fetch` to prune deleted information, so I used `git config fetch.prune true` to make that happen without needing to type `-p` every time.
+
+## Unneeded Commands
+
+The below commands have alternatives that I would recommend using instead.
+
 ### Git Checkout
 
-This command had many different uses depending on its context. I recommend using the below alternatives that specialize in specific
-- Use the [switch command](#git-switch) to change branches.
-- TODO: What else was added to replace this?
+> [!CAUTION]
+> This command can undo changes before they are committed which makes them impossible to recover.
+> If you may want the changes back later, first [save them](./problems-and-solutions.md#save-changes), then undo the changes in a second commit.
+
+This command had different uses depending on its context. I recommend using the below alternatives that specialize in specific uses which makes what you are using them for more clear.
+- Use [git restore](#git-restore) to undo [unstaged changes](./terminology.md#unstaged-change).
+- Use [git switch](#git-switch) to change [branches](./terminology.md#branch).
 
 ### Git Move
 

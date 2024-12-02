@@ -13,6 +13,9 @@
 > git log -3
 > ```
 >
+> Some commands, such as [git diff](#git-diff) need some parameters in a specific order (`[<commit>]` must come before `[<path to file(s)>]` if both are specified).
+> In such cases, I list them in their required order below the command.
+>
 > For commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
 >
 > For commands that accept commit hash(es) (or [HEAD](./terminology.md#head)) you can use `<commit hash>~<number>` to go back a `<number>` of commits from `<commit hash>` or the shorthand `<commit hash>~` to go back one.
@@ -313,5 +316,8 @@ git commit -m "<message>"
 ## Migration
 
 ### Moving Repositoy To A New Server
+
+> [!NOTE]
+> The below graphic was stolen from [Chapter 1.1 of the Pro Git book V2](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control#_distributed_version_control_systems).
 
 ![400](https://git-scm.com/book/en/v2/images/distributed.png)
