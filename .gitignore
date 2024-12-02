@@ -1,0 +1,2 @@
+# Ignore all files, nested files, & subdirectories called ".DS_Store".
+.DS_Store
