@@ -108,7 +108,7 @@ Used to display changed lines in [modified](./terminology.md#modified) (use `--s
 ```bash
 git diff [<commit>] [<path to file(s)>]
 ```
-- `[--staged]` display [staged](./terminology.md#staged) changes instead of [modified](./terminology.md#modified) changes.
+- `[--staged]` Display [staged](./terminology.md#staged) changes instead of [modified](./terminology.md#modified) changes.
     - **Alias(es)** `--cached`.
     - **Note**: Not compatible with `[<commit>]`.
 - `[<commit>]` You can pass various configurations of commit hashes (IDs) to display changes relative to those commits.
@@ -159,7 +159,66 @@ git log
 
 ### Git Rebase
 
+### Git Reset
+
+[Official Git Reset Documentation](https://git-scm.com/docs/git-reset).
+
+This command does different things depending on its context which makes it harder to understand what you are using it for.
+
+Because of this, I recommend only using this command to undo commits and using the newer [git restore](#git-restore) to move [staged changes](./terminology.md#staged-change) to [unstaged](./terminology.md#unstaged-change).
+
+> [!CAUTION]
+> When using reset to remove commits you are almost definitely modifying the history of a branch ([see the perils of rebasing](https://git-scm.com/book/en/v2/Git-Branching-Rebasing#_rebase_peril)), so I recommend using [git revert](#git-revert) instead of reset when possible.
+>
+> If you use this command while you have changes that are not [committed](./terminology.md#committed-change), then you are likely to mix committed changes in with them or delete them altogether which will likely be impossible to undo.
+
+```bash
+git reset [<mode>] [<commit to remove>]
+```
+- `[<mode>]` Determines which changes to reset and where to reset them to.
+    - `[--hard]` Undoes [committed changes](./terminology.md#committed-change) since the commit before `[<commit to remove>]`, [staged changes](./terminology.md#staged-change), and [unstaged changes](./terminology.md#unstaged-change).
+        - **Warning**: Everything except for [untracked changes](./terminology.md#untracked-change) will be undone which is difficult to put back. The prior [committed changes](./terminology.md#committed-change) can [be found again with some effort](./problems-and-solutions.md#find-commit-without-a-branch).
+    - `[--mixed]` Moves [committed changes](./terminology.md#committed-change) since the commit before `[<commit to remove>]` and [staged changes](./terminology.md#staged-change) to  [unstaged](./terminology.md#unstaged-change).
+        - **Warning**: The reset changes & staged changes mix with existing unstaged changes.
+    - `[--soft]` Moves [committed changes](./terminology.md#committed-change) since the commit before `[<commit to remove>]` to [staged](./terminology.md#staged-change).
+        - **Warning**: The reset changes mix with existing staged changes.
+- `[<commit to remove>]` Commit to reset the changes in along with all of the changes after it.
+
+### Git Restore
+
+[Official Git Restore Documentation (added in Git version 2.23.0)](https://git-scm.com/docs/git-restore).
+
+Used to undo [unstaged changes](./terminology.md#unstaged-change) or unstage [staged changes](./terminology.md#staged-change).
+
+By default used to undo all [unstaged changes](./terminology.md#unstaged-change) in file(s) setting them back to their [staged changes](./terminology.md#staged-change) if they have them or [committed changes](./terminology.md#committed-change) if they do not.
+
+When used with the `--staged` flag this command does the opposite of [git add](#git-add) by moving [staged changes](./terminology.md#staged-change) to [unstaged](./terminology.md#unstaged-change) or [untracked](./terminology.md#untracked-change) depending on what state they were in before being added.
+
+> [!CAUTION]
+> When used without the `--staged` flag, this command undoes changes before they are committed which makes them impossible to recover.
+> If you may want the changes back later, first [save them](./problems-and-solutions.md#save-changes), then undo the changes in a second commit.
+>
+> If you use the `--staged` flag and already have [unstaged changes](./terminology.md#unstaged-change) in a file you restore it will mix your [staged changes](./terminology.md#staged-change) in with them. This loses the state the staged file was in and only leaves you with the current contents of the file.
+
+> [!TIP]
+> For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
+
+```bash
+git restore <path to file(s)>
+```
+- `[--staged]` moves [staged changes](./terminology.md#staged-change) to [unstaged](./terminology.md#unstaged-change) or [untracked](./terminology.md#untracked-change) depending on what state they were in before being added.
+- `<path to file(s)>` you wish to restore.
+
 ### Git Revert
+
+[Official Git Revert Documentation](https://git-scm.com/docs/git-revert).
+
+Use to create a new commit that does the opposite of a prior commit.
+```bash
+git revert <commit hash>
+```
+- `[--no-commit]` Places reverted changes in a [staged](./terminology.md#staged-change) state instead of [committed](./terminology.md#committed-change).
+- `<commit hash>` Hash of the commit to undo.
 
 ### Git Stash
 
@@ -240,7 +299,3 @@ Used to delete file(s) & [stage](./terminology.md#staged) them with a single com
 git rm <path to file(s)>
 ```
 - `<path to file(s)>` you wish to delete & [stage](./terminology.md#staged).
-
-### Git Reset
-
-### Git Restore
