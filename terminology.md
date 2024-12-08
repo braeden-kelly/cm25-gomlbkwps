@@ -9,16 +9,28 @@ This concept is basically the same as the one you think of when you think of a "
 > [!NOTE]
 > To see why I prefer this term over "folder", read the [folder metaphor on Wikipedia](https://en.wikipedia.org/wiki/Directory_%28computing%29#Folder_metaphor).
 
+### Repository
+
+This is just a [directory](#directory) where all of your code files live that you can share with your team.
+
+Git creates a special `.git` subdirectory within the repository to store all of its information like [branches](#branch) & [commits](#commit).
+
+![600](./data/assets/repository.png)
+
 ### Change
 
 An addition, deletion, or modification to file(s) in the repository.
 
+![600](./data/assets/change.png)
+
 > [!NOTE]
-> You can not save an empty directory. You add files which will bring their directories if they are nested in them.
+> You cannot save an empty [directory](#directory). You add files which will bring their directories if they are nested in them.
 
 ### Commit
 
 A saved state of files in the repository including auxiliary information like author & date of the save.
+
+![600](./data/assets/commit.png)
 
 ### Branch
 
@@ -37,6 +49,8 @@ The person that committed the [commit](#commit). This is usually the same as [au
 The currently checked out (loaded) commit (save/version) of a repository.
 
 This can be accessed by commands that accept a commit hash using `HEAD` in place of the latest commit hash.
+
+![600](./data/assets/head.png)
 
 ### Local
 
