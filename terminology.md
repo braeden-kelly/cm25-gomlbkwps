@@ -15,13 +15,13 @@ This is just a [directory](#directory) where all of your code files live that yo
 
 Git creates a special `.git` subdirectory within the repository to store all of its information like [branches](#branch) & [commits](#commit).
 
-![600](./data/assets/repository.png)
+![Repository example](./data/assets/repository.png)
 
 ### Change
 
 An addition, deletion, or modification to file(s) in the repository.
 
-![600](./data/assets/change.png)
+![Change example](./data/assets/change.png)
 
 > [!NOTE]
 > You cannot save an empty [directory](#directory). You add files which will bring their directories if they are nested in them.
@@ -30,7 +30,15 @@ An addition, deletion, or modification to file(s) in the repository.
 
 A saved state of files in the repository including auxiliary information like author & date of the save.
 
-![600](./data/assets/commit.png)
+![Commit example](./data/assets/commit.png)
+
+### Head
+
+The currently checked out (loaded) commit (save/version) of a repository.
+
+This can be accessed by commands that accept a commit hash using `HEAD` in place of the latest commit hash.
+
+![Head example](./data/assets/head.png)
 
 ### Branch
 
@@ -39,7 +47,7 @@ A human readable name attached to a specific [commit](#commit).
 > [!NOTE]
 > The below graphic was stolen from [Chapter 3.1 (figure 17) of the Pro Git book V2](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell#_switching_branches).
 
-![600](https://git-scm.com/book/en/v2/images/advance-master.png)
+![Branch example](https://git-scm.com/book/en/v2/images/advance-master.png)
 
 ### Author
 
@@ -48,14 +56,6 @@ The person that wrote the code in a [commit](#commit).
 ### Committer
 
 The person that committed the [commit](#commit). This is usually the same as [author](#author), but can be different when someone uses [git rebase](./commands.md#git-rebase) or someone merges code on someone else's behalf.
-
-### Head
-
-The currently checked out (loaded) commit (save/version) of a repository.
-
-This can be accessed by commands that accept a commit hash using `HEAD` in place of the latest commit hash.
-
-![600](./data/assets/head.png)
 
 ### Local
 
@@ -94,7 +94,7 @@ A system to track different versions of files. Specifically, Git makes the below
 > [!NOTE]
 > The below graphic was stolen from [Chapter 2.2 (figure 8) of the Pro Git book V2](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_recording_changes_to_the_repository).
 
-![600](https://git-scm.com/book/en/v2/images/lifecycle.png)
+![Four states of files](https://git-scm.com/book/en/v2/images/lifecycle.png)
 
 ### Untracked
 
