@@ -385,6 +385,6 @@ git reset [<mode>] [<commit to remove>]
 ### Moving Repositoy To A New Server
 
 > [!NOTE]
-> The below graphic was stolen from [Chapter 1.1 of the Pro Git book V2](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control#_distributed_version_control_systems).
+> The below graphic was stolen from [Chapter 1.1 (figure 3) of the Pro Git book V2](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control#_distributed_version_control_systems).
 
 ![400](https://git-scm.com/book/en/v2/images/distributed.png)

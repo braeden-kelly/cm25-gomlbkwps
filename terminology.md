@@ -36,6 +36,11 @@ A saved state of files in the repository including auxiliary information like au
 
 A human readable name attached to a specific [commit](#commit).
 
+> [!NOTE]
+> The below graphic was stolen from [Chapter 3.1 (figure 17) of the Pro Git book V2](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell#_switching_branches).
+
+![600](https://git-scm.com/book/en/v2/images/advance-master.png)
+
 ### Author
 
 The person that wrote the code in a [commit](#commit).
@@ -87,7 +92,7 @@ A system to track different versions of files. Specifically, Git makes the below
 > This happens when a "Staged" file is modfied after being staged or if you stage specific sections with a tool like Sublime Merge or VS Code.
 
 > [!NOTE]
-> The below graphic was stolen from [Chapter 2.2 of the Pro Git book V2](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_recording_changes_to_the_repository).
+> The below graphic was stolen from [Chapter 2.2 (figure 8) of the Pro Git book V2](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_recording_changes_to_the_repository).
 
 ![600](https://git-scm.com/book/en/v2/images/lifecycle.png)
 
