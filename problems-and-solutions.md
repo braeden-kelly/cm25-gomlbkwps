@@ -21,13 +21,21 @@
 > For commands that accept commit hash(es) (or [HEAD](./terminology.md#head)) you can use `<commit hash>~<number>` to go back a `<number>` of commits from `<commit hash>` or the shorthand `<commit hash>~` to go back one.
 
 > [!NOTE]
-> Most of the below problems/solutions assume you have a local repository already with the exception of [Create Git Repository](#create-git-repository) which helps you create a local repository.
+> Most of the below problems/solutions assume you have a local repository already with the exception of "[Get A Repository](#get-a-repository)" which helps you create a local repository.
 >
 > Solutions are roughly in the order I would expect you to run into the problems, but this is difficult to fully predict.
 
-## Create Git Repository
+## Get A Repository
 
 A Git repository (often called a repo), looks like a normal directory with a `.git` subdirectory in it. How you go about initializing your repository depends on whether you want to base it off from an existing codebase or a local directory.
+
+### Create A New Repository
+
+Creating a Git repostiroy from a local directory (even if it is empty) can be done using the [git init command](./commands.md#git-init).
+
+```bash
+git init
+```
 
 ### Clone An Existing Codebase
 
@@ -39,13 +47,15 @@ This will create a new directory with the same name as the repository and place 
 git clone git@github.com:DustinMEastway/git-on-my-level.git
 ```
 
-### Initialize From A Local Directory
+![Git clone SSH example](./data/assets/git-clone-ssh.png)
 
-Creating a Git repostiroy from a local directory (even if it is empty) can be done using the [git init command](./commands.md#git-init).
+Alternatively, you can clone using HTTPS.
 
 ```bash
-git init
+git clone https://github.com/DustinMEastway/git-on-my-level.git
 ```
+
+![Git clone HTTPS example](./data/assets/git-clone-https.png)
 
 ## Get Status Of A Repository
 

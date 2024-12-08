@@ -47,7 +47,7 @@ A human readable name attached to a specific [commit](#commit).
 > [!NOTE]
 > The below graphic was stolen from [Chapter 3.1 (figure 17) of the Pro Git book V2](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell#_switching_branches).
 
-![Branch example](https://git-scm.com/book/en/v2/images/advance-master.png)
+![Branch example](./data/assets/branch.png)
 
 ### Author
 
