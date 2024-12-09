@@ -94,7 +94,7 @@ A system to track different versions of files. Specifically, Git makes the below
 > [!NOTE]
 > The below graphic was stolen from [Chapter 2.2 (figure 8) of the Pro Git book V2](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_recording_changes_to_the_repository).
 
-![Four states of files](https://git-scm.com/book/en/v2/images/lifecycle.png)
+![Four states of files](./data/assets/four-states-of-files.png)
 
 ### Untracked
 

@@ -68,7 +68,7 @@ git branch
 
 [Official Git Clone Documentation](https://git-scm.com/docs/git-clone).
 
-Used to clone/copy/download an existing codebase from a server hosting a Git repository.
+Used to clone/copy/download an existing [repository](./terminology.md#repository) from a server hosting it.
 
 ```bash
 git clone <repository url> [<directory name>]

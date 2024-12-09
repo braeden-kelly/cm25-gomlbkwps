@@ -27,7 +27,7 @@
 
 ## Get A Repository
 
-A Git repository (often called a repo), looks like a normal directory with a `.git` subdirectory in it. How you go about initializing your repository depends on whether you want to base it off from an existing codebase or a local directory.
+A Git [repository](./terminology.md#repository) (often called a repo), looks like a normal directory with a `.git` subdirectory in it. How you go about initializing your repository depends on whether you want to base it off from an existing repository or a local directory.
 
 ### Create A New Repository
 
@@ -37,7 +37,9 @@ Creating a Git repostiroy from a local directory (even if it is empty) can be do
 git init
 ```
 
-### Clone An Existing Codebase
+![Git init example](./data/assets/git-init.png)
+
+### Clone An Existing Repository
 
 Cloning a Git repository from a remote server can be done using the [git clone command](./commands.md#git-clone).
 
@@ -66,6 +68,14 @@ This will tell you the current branch, how many commits ahead and/or behind it y
 ```bash
 git status
 ```
+
+This will look something like below if you just [create a new repository](#create-a-new-repository).
+
+![Git clean new repository status example](./data/assets/git-status-clean-new.png)
+
+This will look something like below if you just [cloned an existing repository](#clone-an-existing-repository).
+
+![Git clean cloned repository status example](./data/assets/git-status-clean-clone.png)
 
 ### List Branches
 
