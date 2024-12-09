@@ -51,13 +51,14 @@ git clone git@github.com:DustinMEastway/git-on-my-level.git
 
 ![Git clone SSH example](./data/assets/git-clone-ssh.png)
 
-Alternatively, you can clone using HTTPS.
-
-```bash
-git clone https://github.com/DustinMEastway/git-on-my-level.git
-```
-
-![Git clone HTTPS example](./data/assets/git-clone-https.png)
+> [!TIP]
+> Alternatively, you can clone using HTTPS if you prefer not to set up SSH keys.
+>
+> ```bash
+> git clone https://github.com/DustinMEastway/git-on-my-level.git
+> ```
+>
+> ![Git clone HTTPS example](./data/assets/git-clone-https.png)
 
 ## Get Status Of A Repository
 
@@ -69,13 +70,15 @@ This will tell you the current branch, how many commits ahead and/or behind it y
 git status
 ```
 
-This will look something like below if you just [create a new repository](#create-a-new-repository).
+> [!NOTE]
+> This will look something like below if you just [create a new repository](#create-a-new-repository).
+>
+> ![Git clean new repository status example](./data/assets/git-status-clean-new.png)
 
-![Git clean new repository status example](./data/assets/git-status-clean-new.png)
-
-This will look something like below if you just [cloned an existing repository](#clone-an-existing-repository).
-
-![Git clean cloned repository status example](./data/assets/git-status-clean-clone.png)
+> [!NOTE]
+> This will look something like below if you just [cloned an existing repository](#clone-an-existing-repository).
+>
+> ![Git clean cloned repository status example](./data/assets/git-status-clean-clone.png)
 
 ### List Branches
 
