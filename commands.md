@@ -116,6 +116,7 @@ git diff [<commit>] [<path to file(s)>]
     - Use `<commit hash>` to display all changes since (but not including) the provided commit including your uncommitted work.
     - Use `<commit hash>~` to display all changes in and since the provided commit including your uncommitted work.
     - Use `<commit hash>~ <commit hash>` to display all changes in the provided commit.
+    - Use `HEAD~ HEAD` to display all changes in the last commit.
     - Use `<start commit hash>~ <end commit hash>` to display all changes in the commit with `<start commit hash>`, the commit with `<end commit hash>` and all commits between them.
 - `[<path to file(s)>]` you wish diff (default: diff all files).
 
@@ -143,10 +144,12 @@ Some information includes their message, author, & date as well as commit hashes
 ```bash
 git log
 ```
+- `[--abbrev-commit]` Displays shortened commit hashes.
 - `[--graph]` Displays an ASCII graph of branch & merge history.
     - `[--pretty=oneline]` pairs nicely with this command.
 - `[--max-count=<number>]` Limit the max number of commits displayed.
     - **Alias(es)** `-n <number>`, `-<number>`.
+- `[--oneline]` Shorthand for `--pretty=oneline` & `--abbrev-commit` at the same time.
 - `[--patch]` Used to display a diff with commit information, but I generally use [git diff](#git-diff) instead.
 - `[--pretty=<format>]` Used to change the amount & format of information displayed for each commit.
     - **Note**: See [git log pretty formats](https://git-scm.com/docs/git-log#_pretty_formats) for official documentation on supported formats.

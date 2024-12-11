@@ -72,8 +72,8 @@ The tool used to run Git commands. This can be a command line or graphical user 
 Below are some of the many options to use as clients in order of how much I like them.
 1. [Sublime Merge](https://www.sublimemerge.com/) (freemium).
 2. [Git CLI](https://git-scm.com/downloads) (free).
-3. [Github Desktop](https://github.com/apps/desktop) (free).
-4. [Built-in VS Code collaboration tools](https://code.visualstudio.com/) (free).
+3. [Built-in VS Code collaboration tools](https://code.visualstudio.com/) (free).
+4. [Github Desktop](https://github.com/apps/desktop) (free).
 
 ## Version Control
 
@@ -88,8 +88,10 @@ A system to track different versions of files. Specifically, Git makes the below
 ## Four States Of Files
 
 > [!IMPORTANT]
-> A "Staged" file can be "Modified" at the same time if it has unstaged changes.
+> A "Staged" file can be "Modified" at the same time if it has [unstaged changes](#unstaged-change).
 > This happens when a "Staged" file is modfied after being staged or if you stage specific sections with a tool like Sublime Merge or VS Code.
+>
+> ![Git modified & staged file example](./data/assets/modified-and-staged-file.png)
 
 > [!NOTE]
 > The below graphic was stolen from [Chapter 2.2 (figure 8) of the Pro Git book V2](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_recording_changes_to_the_repository).
@@ -111,10 +113,10 @@ Ignored files are [untracked](#untracked) and match a patern in the `.gitignore`
 
 In addition (pun intended), [add command](commands.md#git-add) will not add ignored files unless you specifically add them and use a flag to force the matter.
 
-See [ignoring untracked files](./problems-and-solutions.md#ignoring-untracked-files) for more information on using `.gitignore`.
+See [ignoring untracked files](./problems-and-solutions.md#ignore-untracked-files) for more information on using `.gitignore`.
 
 > [!TIP]
-> `.gitignore` only works on [untracked](#untracked) files. If you already [staged](./terminology.md#staged-change) and/or [committed](./terminology.md#committed-change) changes in a file you wish to ignore, then follow the [ignoring committed/staged files solution](./problems-and-solutions.md#ignoring-committedstaged-files).
+> `.gitignore` only works on [untracked](#untracked) files. If you already [staged](./terminology.md#staged-change) and/or [committed](./terminology.md#committed-change) changes in a file you wish to ignore, then follow the [ignore committed/staged files solution](./problems-and-solutions.md#ignore-committedstaged-files).
 
 ### Unmodified
 
@@ -138,7 +140,7 @@ We usually think about adding/deleting/saving a full file, so it makes sense for
 That said, I recommend trying to think of Git files in terms of changes instead. This minor change in thinking makes the below concepts easier to understand.
 - A change can only be in one status unlike files which can be in multiple states at the same time.
   - This even makes files being [modified](#modified) & [staged](#staged) at the same time easier to understand. It is because the file has two changes, one [staged](#staged-change) and one [unstaged](#unstaged-change).
-- [Unmodified](#unmodified) files actually represent to states. All changes in the file could be [staged](#staged-change) or [committed](#committed-change).
+- [Unmodified](#unmodified) files actually represent two states. All changes in the file could be [staged](#staged-change) or [committed](#committed-change).
 - We can use the term "[unstaged](#unstaged-change)" for a change instead of "[modified](#modified)" like we do with files.
   - This is better because most people's intuition would tell them that a [staged](#staged) file is "modified", but it is [unmodified](#unmodified) with the way we are using it.
   - We should not use "unstaged" in place of "modified" for files because they can be [modified](#modified) & [staged](#staged) simultaneously which would make them "unstaged" & "staged" simultaneously.

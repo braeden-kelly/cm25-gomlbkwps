@@ -114,9 +114,10 @@ I primarily use this command to display commit hashes for other commands or mess
 git log
 ```
 - `[--graph]` Displays an ASCII graph of branch & merge history.
-    - `[--pretty=oneline]` pairs nicely with this command.
+    - `[--oneline]` pairs nicely with this command.
 - `[--max-count=<number>]` Limit the max number of commits displayed.
     - **Alias(es)** `-n <number>`, `-<number>`.
+- `[--oneline]` Shorthand for `--pretty=oneline` & ``.
 - `[--patch]` Used to display a diff with commit information, but I generally use [git diff](#git-diff) instead.
 - `[--pretty=<format>]` Used to change the amount & format of information displayed for each commit.
     - **Note**: See [git log pretty formats](https://git-scm.com/docs/git-log#_pretty_formats) for official documentation on supported formats.
@@ -139,6 +140,8 @@ git diff [<path to file(s)>]
 ```
 - `[<path to file(s)>]` you wish diff (default: diff all files).
 
+![Git diff unstaged example](./data/assets/git-diff-unstaged.png)
+
 #### Display Staged Changes
 
 Use [git diff](./commands.md#git-diff) with the `--staged` flag to display changed lines in [staged](./terminology.md#staged) files.
@@ -152,6 +155,8 @@ git diff --staged [<path to file(s)>]
 - `[<path to file(s)>]` you wish diff (default: diff all files).
 - `[--staged]` display [staged](./terminology.md#staged) changes instead of [modified](./terminology.md#modified) changes.
     - **Alias(es)** `--cached`.
+
+![Git diff staged example](./data/assets/git-diff-staged.png)
 
 #### Display Committed Changes
 
@@ -173,7 +178,7 @@ git diff <commit> [<path to file(s)>]
     - Use `<start commit hash>~ <end commit hash>` to display all changes in the commit with `<start commit hash>`, the commit with `<end commit hash>` and all commits between them.
 - `[<path to file(s)>]` you wish diff (default: diff all files).
 
-## Adding Files
+## Add Files
 
 > [!TIP]
 > For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
@@ -185,13 +190,15 @@ git add <path to file(s)>
 ```
 - `<path to file(s)>` you wish to [stage](./terminology.md#staged).
 
+![Git add example](./data/assets/git-add.png)
+
 > [!TIP]
 > To undo this action see "[undo staged changes](problems-and-solutions.md#undo-staged-changes)".
 
-## Deleting Files
+## Delete Files
 
 > [!NOTE]
-> If you wish to remove file(s) from Git, but keep them locally, see the [ignoring file(s) solution](#ignoring-files).
+> If you wish to remove file(s) from Git, but keep them locally, see the [ignore file(s) solution](#ignore-files).
 
 > [!TIP]
 > For Git commands that accept file(s), you can specify them with spaces between them `file1.txt temp/file2.txt`, with wildcards `**/*.txt`, or add full directories `temp/`.
@@ -218,7 +225,7 @@ git add <path to file(s)>
 ```
 - `<path to file(s)>` you wish to [stage](./terminology.md#staged).
 
-## Ignoring Files
+## Ignore Files
 
 > [!NOTE]
 > If you wish to remove file(s) from Git and remove them locally, see the [deleting file(s) solution](#deleting-files).
@@ -227,12 +234,6 @@ Sometimes you want to have files in your repository without having them checked 
 
 For example, environment files may contain private values that you do not want checked in.
 
-### Ignoring Untracked Files
-
-Create a [.gitignore file](https://git-scm.com/docs/gitignore) and add patterns that match files you wish for Git to ignore instead of displaying as [untracked](./terminology.md#untracked).
-
-> [!IMPORTANT]
-> `.gitignore` only works on [untracked](./terminology.md#untracked) files. If you already [staged](./terminology.md#staged-change) and/or [committed](./terminology.md#committed-change) changes in a file you wish to ignore, then follow the [ignoring committed/staged files solution](./problems-and-solutions.md#ignoring-committedstaged-files).
 
 ```bash
 # Lines starting with "#" are comments.
@@ -254,7 +255,22 @@ node_modules/
 /generated/
 ```
 
-### Ignoring Committed/Staged Files
+### Ignore Untracked Files
+
+Create a [.gitignore file](https://git-scm.com/docs/gitignore) and add patterns that match files you wish for Git to ignore instead of displaying as [untracked](./terminology.md#untracked).
+
+> [!IMPORTANT]
+> `.gitignore` only works on [untracked](./terminology.md#untracked) files. If you already [staged](./terminology.md#staged-change) and/or [committed](./terminology.md#committed-change) changes in a file you wish to ignore, then follow the [ignore committed/staged files solution](./problems-and-solutions.md#ignore-committedstaged-files).
+
+This is what [getting the status](#get-status-of-a-repository) looks like before ignoring files.
+
+![Git status before ignore example](./data/assets/ignore-before.png)
+
+This is what [getting the status](#get-status-of-a-repository) looks like after ignoring files.
+
+![Git status after ignore example](./data/assets/ignore-after.png)
+
+### Ignore Committed/Staged Files
 
 `.gitignore` only works on [untracked](./terminology.md#untracked) files. If you already [staged](./terminology.md#staged) or [committed](./terminology.md#commit) a file then do the following.
 
@@ -268,7 +284,7 @@ git add <path to file(s)>
 
 3. Rename the file(s) back to the original name(s).
 
-4. Now that you have staged their deletions, the files will show up as [untracked](./terminology.md#untracked) which means you can use the [ignoring untracked files solution](./problems-and-solutions.md#ignoring-untracked-files).
+4. Now that you have staged their deletions, the files will show up as [untracked](./terminology.md#untracked) which means you can use the [ignore untracked files solution](./problems-and-solutions.md#ignore-untracked-files).
 
 ## Moving/Renaming A File
 
