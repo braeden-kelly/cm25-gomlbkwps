@@ -113,11 +113,12 @@ I primarily use this command to display commit hashes for other commands or mess
 ```bash
 git log
 ```
+- `[--abbrev-commit]` Displays shortened commit hashes.
 - `[--graph]` Displays an ASCII graph of branch & merge history.
     - `[--oneline]` pairs nicely with this command.
 - `[--max-count=<number>]` Limit the max number of commits displayed.
     - **Alias(es)** `-n <number>`, `-<number>`.
-- `[--oneline]` Shorthand for `--pretty=oneline` & ``.
+- `[--oneline]` Shorthand for `--pretty=oneline` & `--abbrev-commit` at the same time.
 - `[--patch]` Used to display a diff with commit information, but I generally use [git diff](#git-diff) instead.
 - `[--pretty=<format>]` Used to change the amount & format of information displayed for each commit.
     - **Note**: See [git log pretty formats](https://git-scm.com/docs/git-log#_pretty_formats) for official documentation on supported formats.

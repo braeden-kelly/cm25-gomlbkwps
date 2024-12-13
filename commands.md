@@ -146,7 +146,7 @@ git log
 ```
 - `[--abbrev-commit]` Displays shortened commit hashes.
 - `[--graph]` Displays an ASCII graph of branch & merge history.
-    - `[--pretty=oneline]` pairs nicely with this command.
+    - `[--oneline]` pairs nicely with this command.
 - `[--max-count=<number>]` Limit the max number of commits displayed.
     - **Alias(es)** `-n <number>`, `-<number>`.
 - `[--oneline]` Shorthand for `--pretty=oneline` & `--abbrev-commit` at the same time.
