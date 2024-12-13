@@ -175,6 +175,7 @@ git diff <commit> [<path to file(s)>]
     - Use `<commit hash>` to display all changes since (but not including) the provided commit including your uncommitted work.
     - Use `<commit hash>~` to display all changes in and since the provided commit including your uncommitted work.
     - Use `<commit hash>~ <commit hash>` to display all changes in the provided commit.
+    - Use `HEAD~ HEAD` to display all changes in the last commit.
     - Use `<start commit hash>~ <end commit hash>` to display all changes in the commit with `<start commit hash>`, the commit with `<end commit hash>` and all commits between them.
 - `[<path to file(s)>]` you wish diff (default: diff all files).
 
