@@ -17,12 +17,17 @@ Most of this presentation's information was found in sections 1-3 of the [Pro Gi
 The tool you use to interact with Git.
 
 > [!TIP] Sublime Merge
+>
 > ![Sublime Merge](./data/assets/client-sublime-merge.png)
 
+
 > [!TIP] Git CLI
+>
 > ![Git CLI](./data/assets/client-git-cli.png)
 
+
 > [!TIP] VS Code
+>
 > ![VS Code](./data/assets/client-vs-code.png)
 
 ### 3-4. Command Syntax
