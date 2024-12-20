@@ -10,6 +10,25 @@ By the end of this session, you'll be equipped with the skills and confidence to
 
 Most of this presentation's information was found in sections 1-3 of the [Pro Git book](https://git-scm.com/book/en/v2), its problems come from my career, and its solutions come from past tears I have shed.
 
+## Slides
+
+### Command Syntax
+
+> [!NOTE]
+>
+> - Commands use `<>` to wrap sections of code that you should replace and `[]` to denote optional segments.
+> - Shorthand aliases (one "-" instead of "--") require a space instead of an equal sign when they accept values.
+> ```
+> git log –max-count=<number>
+> git log -n <number>
+> git log -<number>
+> ```
+> - Order of arguments is sometimes important. In such cases they are listed in the order they must go in.
+> ```
+> git diff --staged [<path to file(s)>]
+> ```
+
+
 ### How Do I Create A New Repository?
 
 ```bash
@@ -26,7 +45,7 @@ git init
 my-new-site
 ~ cd my-new-site
 ~ git init
-Initialized empty Git repository in /Users/deastway/Sites/my-new-site/my-new-site/.git/
+Initialized empty Git repository in /Users/deastway/Sites/my-new-site/.git/
 ```
 
 </details>
