@@ -12,7 +12,20 @@ Most of this presentation's information was found in sections 1-3 of the [Pro Gi
 
 ## Slides
 
-### Command Syntax
+### 2. Term: Client
+
+The tool you use to interact with Git.
+
+> [!TIP] Sublime Merge
+> ![Sublime Merge](./data/assets/client-sublime-merge.png)
+
+> [!TIP] Git CLI
+> ![Git CLI](./data/assets/client-git-cli.png)
+
+> [!TIP] VS Code
+> ![VS Code](./data/assets/client-vs-code.png)
+
+### 3-4. Command Syntax
 
 > [!NOTE]
 >
@@ -28,8 +41,17 @@ Most of this presentation's information was found in sections 1-3 of the [Pro Gi
 > git diff --staged [<path to file(s)>]
 > ```
 
+### 5. Term: Repository
 
-### How Do I Create A New Repository?
+Directory storing all Git information.
+
+![Git repository](./data/assets/repository.png)
+
+### 6. How Do I Create A New Repository?
+
+Command: `git init`
+
+#### Tutorial
 
 ```bash
 mkdir my-new-site
