@@ -1,18 +1,16 @@
 # Git On My Level: Bridging Knowledge with Practical Solutions
 
+## Description
+
 If you write code, you're likely using Git. If not, you probably should be—unless you enjoy the thrill of losing track of your work and spending hours hunting down bugs. But don’t worry, this talk isn't about convincing you why Git is a must; there are plenty of resources for that. Instead, we’ll address why many developers feel uneasy about performing complex operations with Git. Although there are numerous resources available to learn Git, I believe a major reason for the unease is the traditional method of teaching—introducing one command or term at a time, often without practical examples of how to use them.
 
 In this session, we’ll bridge that gap. We’ll tackle common Git challenges, dive into practical solutions, and dissect the mechanics behind each approach. You'll learn the pros and cons of different strategies and gain actionable insights to resolve frequent issues faced by you and your team during collaboration.
 
 By the end of this session, you'll be equipped with the skills and confidence to handle Git more effectively and improve your development workflow.
 
-## Introduction
-
 Most of this presentation's information was found in sections 1-3 of the [Pro Git book](https://git-scm.com/book/en/v2), its problems come from my career, and its solutions come from past tears I have shed.
 
-## Slides
-
-### 2. Term: Client
+## 2. Term: Client
 
 The tool you use to interact with Git.
 
@@ -38,7 +36,7 @@ The tool you use to interact with Git.
 </details>
 
 
-### 3-4. Command Syntax
+## 3-4. Command Syntax
 
 > [!NOTE]
 >
@@ -54,17 +52,17 @@ The tool you use to interact with Git.
 > git diff --staged [<path to file(s)>]
 > ```
 
-### 5. Term: Repository
+## 5. Term: Repository
 
 Directory storing all Git information.
 
 ![Git repository](./data/assets/repository.png)
 
-### 6. How Do I Create A New Repository?
+## 6. How Do I Create A New Repository?
 
 Command: `git init`
 
-#### Tutorial
+### Tutorial
 
 ```bash
 mkdir my-new-site
