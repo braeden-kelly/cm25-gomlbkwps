@@ -10,12 +10,23 @@ By the end of this session, you'll be equipped with the skills and confidence to
 
 Most of this presentation's information was found in sections 1-3 of the [Pro Git book](https://git-scm.com/book/en/v2), its problems come from my career, and its solutions come from past tears I have shed.
 
-I will start with quickly running through prerequisite [terminology](#terminology) for 15 minutes for those that have no desire to read a book on Git.
+### How Do I Create A New Repository?
 
-Next, we can use that knowledge to work through [problems & solutions](#problems--solutions) for 35 minutes only introducing [commands](./commands.md) as they are used to solve problems instead of them being the focus.
+```bash
+mkdir my-new-site
+cd my-new-site
+git init
+```
 
-Finally, I will leave 10 minutes open at the end for questions.
+<details>
+<summary>Output:</summary>
 
-## [Terminology](./terminology.md)
+```
+~ mkdir my-new-site
+my-new-site
+~ cd my-new-site
+~ git init
+Initialized empty Git repository in /Users/deastway/Sites/my-new-site/my-new-site/.git/
+```
 
-## [Problems & Solutions](./problems-and-solutions.md)
+</details>
