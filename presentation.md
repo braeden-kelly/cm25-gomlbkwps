@@ -62,7 +62,7 @@ Directory storing all Git information.
 
 Command: `git init`
 
-### Tutorial
+### Follow Along
 
 ```bash
 mkdir my-new-site
@@ -70,8 +70,7 @@ cd my-new-site
 git init
 ```
 
-<details>
-<summary>Output:</summary>
+### Output
 
 ```
 ~ mkdir my-new-site
@@ -80,5 +79,3 @@ my-new-site
 ~ git init
 Initialized empty Git repository in /Users/deastway/Sites/my-new-site/.git/
 ```
-
-</details>
