@@ -16,19 +16,27 @@ Most of this presentation's information was found in sections 1-3 of the [Pro Gi
 
 The tool you use to interact with Git.
 
-> [!TIP]
-> Sublime Merge
-> ![Sublime Merge](./data/assets/client-sublime-merge.png)
+<details>
+<summary>Sublime Merge</summary>
 
+![Sublime Merge](./data/assets/client-sublime-merge.png)
 
-> [!TIP]
-> Git CLI
-> ![Git CLI](./data/assets/client-git-cli.png)
+</details>
 
+<details>
+<summary>Git CLI</summary>
 
-> [!TIP]
-> VS Code
-> ![VS Code](./data/assets/client-vs-code.png)
+![Git CLI](./data/assets/client-git-cli.png)
+
+</details>
+
+<details>
+<summary>VS Code</summary>
+
+![VS Code](./data/assets/client-vs-code.png)
+
+</details>
+
 
 ### 3-4. Command Syntax
 
