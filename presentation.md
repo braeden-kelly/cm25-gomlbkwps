@@ -10,7 +10,7 @@ By the end of this session, you'll be equipped with the skills and confidence to
 
 Most of this presentation's information was found in sections 1-3 of the [Pro Git book](https://git-scm.com/book/en/v2), its problems come from my career, and its solutions come from past tears I have shed.
 
-## 2. Term: Client
+## Term: Client
 
 The tool you use to interact with Git.
 
@@ -35,34 +35,30 @@ The tool you use to interact with Git.
 
 </details>
 
+## Note: Command Syntax
 
-## 3-4. Command Syntax
+- Commands use `<>` to wrap sections of code that you should replace and `[]` to denote optional segments.
+- Shorthand aliases (one "-" instead of "--") require a space instead of an equal sign when they accept values.
+```bash
+git log –max-count=<number>
+git log -n <number>
+git log -<number>
+```
+- Order of arguments is sometimes important. In such cases they are listed in the order they must go in.
+```bash
+git diff --staged [<path to file(s)>]
+```
 
-> [!NOTE]
->
-> - Commands use `<>` to wrap sections of code that you should replace and `[]` to denote optional segments.
-> - Shorthand aliases (one "-" instead of "--") require a space instead of an equal sign when they accept values.
-> ```
-> git log –max-count=<number>
-> git log -n <number>
-> git log -<number>
-> ```
-> - Order of arguments is sometimes important. In such cases they are listed in the order they must go in.
-> ```
-> git diff --staged [<path to file(s)>]
-> ```
-
-## 5. Term: Repository
+## Term: Repository
 
 Directory storing all Git information.
 
 ![Git repository](./data/assets/repository.png)
 
-## 6. How Do I Create A New Repository?
+## How Do I Create A New Repository?
 
-Command: `git init`
-
-### Follow Along
+<details>
+<summary>Follow Along</summary>
 
 ```bash
 mkdir my-new-site
@@ -70,7 +66,7 @@ cd my-new-site
 git init
 ```
 
-### Output
+</details>
 
 ```
 ~ mkdir my-new-site
@@ -78,4 +74,100 @@ my-new-site
 ~ cd my-new-site
 ~ git init
 Initialized empty Git repository in /Users/deastway/Sites/my-new-site/.git/
+```
+
+## How Do I Clone An Existing Repository?
+
+Using SSH.
+
+```
+~ git clone git@github.com:DustinMEastway/git-on-my-level.git
+Cloning into 'git-on-my-level'...
+remote: Enumerating objects: 184, done.
+remote: Counting objects: 100% (126/126), done.
+remote: Compressing objects: 100% (91/91), done.
+remote: Total 184 (delta 67), reused 90 (delta 35), pack-reused 58 (from 1)
+Receiving objects: 100% (184/184), 1.72 MiB | 7.93 MiB/s, done.
+Resolving deltas: 100% (90/90), done.
+```
+
+## How Do I Clone An Existing Repository?
+
+Using HTTPS.
+
+```
+~ git clone https://github.com/DustinMEastway/git-on-my-level.git
+Cloning into 'git-on-my-level'...
+remote: Enumerating objects: 184, done.
+remote: Counting objects: 100% (126/126), done.
+remote: Compressing objects: 100% (91/91), done.
+remote: Total 184 (delta 67), reused 90 (delta 35), pack-reused 58 (from 1)
+Receiving objects: 100% (184/184), 1.72 MiB | 10.06 MiB/s, done.
+Resolving deltas: 100% (90/90), done.
+```
+
+## How Do I Get The Repository’s Status?
+
+<details>
+<summary>Follow Along</summary>
+
+```bash
+git status
+```
+
+</details>
+
+```
+~ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+```
+
+```
+~ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+```
+
+## Note: Four States Of Files
+
+![Four states of files](./data/assets/four-states-of-files.png)
+
+## How Do I Get The Repository’s Status?
+
+<details>
+<summary>Follow Along</summary>
+
+```bash
+mkdir src
+echo "TODO delete this file." > src/accidental-file.txt
+echo "TODO modify this content." > src/modify.md
+echo " Content to rename." > old-config.txt
+git status
+```
+
+</details>
+
+```
+~ mkdir src
+src
+~ echo "TODO delete this file." > src/accidental-file.txt
+~ echo "TODO modify this content." > src/modify.md
+~ echo " Content to rename." > old-config.txt
+~ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+  old-config.txt
+  src/
+
+nothing added to commit but untracked files present (use "git add" to track)
 ```
