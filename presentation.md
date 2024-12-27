@@ -126,6 +126,8 @@ No commits yet
 nothing to commit (create/copy files and use "git add" to track)
 ```
 
+Or.
+
 ```
 ~ git status
 On branch main
@@ -138,6 +140,9 @@ nothing to commit, working tree clean
 
 ![Four states of files](./data/assets/four-states-of-files.png)
 
+> [!NOTE]
+> Source: Chapter 2.2 (figure 8) of the Pro Git book V2
+
 ## How Do I Get The Repository’s Status?
 
 <details>
@@ -147,7 +152,7 @@ nothing to commit, working tree clean
 mkdir src
 echo "TODO delete this file." > src/accidental-file.txt
 echo "TODO modify this content." > src/modify.md
-echo " Content to rename." > old-config.txt
+echo "Content to rename." > old-config.txt
 git status
 ```
 
@@ -158,7 +163,7 @@ git status
 src
 ~ echo "TODO delete this file." > src/accidental-file.txt
 ~ echo "TODO modify this content." > src/modify.md
-~ echo " Content to rename." > old-config.txt
+~ echo "Content to rename." > old-config.txt
 ~ git status
 On branch master
 
@@ -336,7 +341,7 @@ index 0000000..213fa47
 --- /dev/null
 +++ b/old-config.txt
 @@ -0,0 +1 @@
-+ Content to rename.
++Content to rename.
 diff --git a/src/accidental-file.txt b/src/accidental-file.txt
 new file mode 100644
 index 0000000..75cf8c6
@@ -462,3 +467,486 @@ index d026723..acd49db 100644
 ![Change to move/rename a file](./data/assets/change-move.png)
 
 </details>
+
+## Note: Four States Of Changes
+
+- **Untracked** - Created an untracked file.
+- **Unstaged** - Change made to an unmodified or staged file that has not been staged yet.
+- **Staged** - Change will go into next commit.
+- **Committed** - Change already added to a commit to “save” it.
+
+## Term: Commit
+
+![Commit](./data/assets/commit.png)
+
+## How Do I Save Changes?
+
+<details>
+<summary>Follow Along</summary>
+
+```bash
+git commit -m "initial commit"
+git status
+```
+
+</details>
+
+```
+~ git commit -m "initial commit"
+[master (root-commit) 2d4fc5b] initial commit
+ 4 files changed, 4 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 old-config.txt
+ create mode 100644 src/accidental-file.txt
+ create mode 100644 src/modify.md
+~ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+  modified:   src/modify.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+## Term: Local & Remote
+
+![Local & remote repositories](./data/assets/local-and-remote.png)
+
+> [!NOTE]
+> Source: Chapter 1.1 (figure 3) of the Pro Git book V2
+
+## How Do I Display Remotes?
+
+<details>
+<summary>Follow Along</summary>
+
+```bash
+git remote
+```
+
+</details>
+
+```
+~ git remote
+```
+
+Or
+
+```
+~ git remote
+origin
+```
+
+## How Do I Add A Remote?
+
+<details>
+<summary>Follow Along</summary>
+
+```bash
+git remote add origin https://github.com/DustinMEastway/my-new-site.git
+git remote
+```
+
+</details>
+
+```
+~ git remote add origin https://github.com/DustinMEastway/my-new-site.git
+~ git remote
+origin
+```
+
+## How Do I Remove A Remote?
+
+<details>
+<summary>Follow Along</summary>
+
+```bash
+git remote remove origin
+git remote
+git remote add origin https://github.com/DustinMEastway/my-new-site.git
+```
+
+</details>
+
+```
+~ git remote remove origin
+~ git remote
+~ git remote add origin https://github.com/DustinMEastway/my-new-site.git
+```
+
+## How Do I Display The URL For A Remote?
+
+<details>
+<summary>Follow Along</summary>
+
+```bash
+git remote get-url origin
+```
+
+</details>
+
+```
+~ git remote get-url origin
+https://github.com/DustinMEastway/my-new-site.git
+```
+
+## How Do I Set The URL For A Remote?
+
+<details>
+<summary>Follow Along</summary>
+
+```bash
+git remote set-url origin git@github.com:DustinMEastway/my-new-site.git
+git remote get-url origin
+```
+
+</details>
+
+```
+~ git remote set-url origin git@github.com:DustinMEastway/my-new-site.git
+~ git remote get-url origin
+git@github.com:DustinMEastway/my-new-site.git
+```
+
+## How Do I Upload Changes To Remote?
+
+With an unset upstream branch.
+
+<details>
+<summary>Follow Along</summary>
+
+```bash
+git push
+git push --set-upstream origin master
+```
+
+</details>
+
+```
+~ git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+~ git push --set-upstream origin master
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (7/7), 489 bytes | 489.00 KiB/s, done.
+Total 7 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:DustinMEastway/my-new-site.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+```
+
+## How Do I Delete Files?
+
+<details>
+<summary>Follow Along</summary>
+
+```bash
+echo "Staged" > src/accidental-staged.txt
+echo "Untracked" > src/accidental-untracked.txt
+git add src/accidental-staged.txt
+rm src/accidental-file.txt src/accidental-staged.txt src/accidental-untracked.txt
+git add src/accidental-file.txt src/accidental-staged.txt src/modify.md
+git status
+```
+
+</details>
+
+```
+~ echo "Staged" > src/accidental-staged.txt
+~ echo "Untracked" > src/accidental-untracked.txt
+~ git add src/accidental-staged.txt
+~ rm src/accidental-file.txt src/accidental-staged.txt src/accidental-untracked.txt
+~ git add src/accidental-file.txt src/accidental-staged.txt src/modify.md
+~ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+  deleted:    src/accidental-file.txt
+  modified:   src/modify.md
+```
+
+## How Do I Move / Rename Files?
+
+<details>
+<summary>Follow Along</summary>
+
+```bash
+mv old-config.txt config.txt
+git add config.txt old-config.txt
+git status
+```
+
+</details>
+
+```
+~ mv old-config.txt config.txt
+~ git add config.txt old-config.txt
+~ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+  renamed:    old-config.txt -> config.txt
+  deleted:    src/accidental-file.txt
+  modified:   src/modify.md
+```
+
+## Warning: Dangers Of Moving Files
+
+<details>
+<summary>Follow Along</summary>
+
+```bash
+echo "TODO delete this file." > config.txt
+git add config.txt
+git status
+echo "Content to rename." > config.txt
+git add config.txt
+```
+
+</details>
+
+```
+~ echo "TODO delete this file." > config.txt
+~ git add config.txt
+~ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+  renamed:    src/accidental-file.txt -> config.txt
+  deleted:    old-config.txt
+  modified:   src/modify.md
+
+~ echo "Content to rename." > config.txt
+~ git add config.txt
+```
+
+## Prep Content
+
+<details>
+<summary>Follow Along</summary>
+
+```bash
+echo "New content." > src/new-file.txt
+git add src/new-file.txt
+git commit -m "test different change types"
+echo "{ \"isDev\": true }" > config.txt
+git add config.txt
+git commit -m "update config content"
+mv config.txt config.json
+git add config.json config.txt
+git commit -m "update config content"
+git status
+```
+
+</details>
+
+```
+~ echo "New content." > src/new-file.txt
+~ git add src/new-file.txt
+~ git commit -m "test different change types"
+[master 125a205] test different change types
+ 4 files changed, 2 insertions(+), 2 deletions(-)
+ rename old-config.txt => config.txt (100%)
+ delete mode 100644 src/accidental-file.txt
+ create mode 100644 src/new-file.txt
+~ echo "{ \"isDev\": true }" > config.txt
+~ git add config.txt
+~ git commit -m "update config content"
+[master b2c5f49] update config content
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+~ mv config.txt config.json
+~ git add config.json config.txt
+~ git commit -m "update config content"
+[master 0cc84e5] update config content
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename config.txt => config.json (100%)
+~ git status
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+```
+
+## How Do I Display Commits?
+
+<details>
+<summary>Follow Along</summary>
+
+```bash
+git log
+```
+
+</details>
+
+```
+~ git log
+commit 0cc84e5b386474398b4756ed6e1b09d45d48cfe2 (HEAD -> master)
+Author: Dustin M. Eastway <Dustin.Eastway@gmail.com>
+Date:   Fri Dec 27 16:28:04 2024 -0500
+
+    update config content
+
+commit b2c5f4990fb84a7fddd62441ade8e9e41e9e890f
+Author: Dustin M. Eastway <Dustin.Eastway@gmail.com>
+Date:   Fri Dec 27 16:27:52 2024 -0500
+
+    update config content
+
+commit 125a2054d22c0f19b8407bbf647549252ad03428
+Author: Dustin M. Eastway <Dustin.Eastway@gmail.com>
+Date:   Fri Dec 27 16:20:27 2024 -0500
+
+    test different change types
+
+commit 2d4fc5b5d37fa66c4a1018f55f63ca9ef314e2ad (origin/master)
+Author: Dustin M. Eastway <Dustin.Eastway@gmail.com>
+Date:   Tue Dec 24 21:44:00 2024 -0500
+
+    initial commit
+```
+
+## How Do I Display Commits?
+
+Last `<number>` of commits.
+
+<details>
+<summary>Follow Along</summary>
+
+```bash
+git log -2
+```
+
+</details>
+
+```
+~ git log -2
+commit 0cc84e5b386474398b4756ed6e1b09d45d48cfe2 (HEAD -> master)
+Author: Dustin M. Eastway <Dustin.Eastway@gmail.com>
+Date:   Fri Dec 27 16:28:04 2024 -0500
+
+    update config content
+
+commit b2c5f4990fb84a7fddd62441ade8e9e41e9e890f
+Author: Dustin M. Eastway <Dustin.Eastway@gmail.com>
+Date:   Fri Dec 27 16:27:52 2024 -0500
+
+    update config content
+```
+
+## How Do I Display Commits?
+
+With formatting.
+
+<details>
+<summary>Follow Along</summary>
+
+```bash
+git log --pretty=format:"%H %s"
+```
+
+</details>
+
+```
+~ git log --pretty=format:"%H %s"
+0cc84e5b386474398b4756ed6e1b09d45d48cfe2 update config content
+b2c5f4990fb84a7fddd62441ade8e9e41e9e890f update config content
+125a2054d22c0f19b8407bbf647549252ad03428 test different change types
+2d4fc5b5d37fa66c4a1018f55f63ca9ef314e2ad initial commit
+```
+
+## How Do I Display Commits?
+
+On single lines.
+
+<details>
+<summary>Follow Along</summary>
+
+```bash
+git log --oneline
+```
+
+</details>
+
+```
+~ git log --oneline
+0cc84e5 (HEAD -> master) update config content
+b2c5f49 update config content
+125a205 test different change types
+2d4fc5b (origin/master) initial commit
+```
+
+## Prep Content
+
+<details>
+<summary>Follow Along</summary>
+
+```bash
+echo "Modified content 2." > src/modify.md
+git add src/modify.md
+echo "Modified content 3." > src/modify.md
+git status
+```
+
+</details>
+
+```
+~ echo "Modified content 2." > src/modify.md
+~ git add src/modify.md
+~ echo "Modified content 3." > src/modify.md
+~ git status
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+  modified:   src/modify.md
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+  modified:   src/modify.md
+```
+
+## How Do I Display Changes?
+
+For all changes after `<commit hash>`.
+
+<details>
+<summary>Follow Along</summary>
+
+Replace `0cc84e5` with your latest (top) commit hash.
+
+```bash
+git diff 0cc84e5
+```
+
+</details>
+
+```
+~ git diff 0cc84e5
+diff --git a/src/modify.md b/src/modify.md
+index acd49db..ae0ad3a 100644
+--- a/src/modify.md
++++ b/src/modify.md
+@@ -1 +1 @@
+-Modified content.
++Modified content 3.
+```
