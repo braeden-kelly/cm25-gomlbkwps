@@ -843,7 +843,7 @@ Date:   Tue Dec 24 21:44:00 2024 -0500
 
 ## How Do I Display Commits?
 
-Last `<number>` of commits.
+Last number of commits.
 
 <details>
 <summary>Follow Along</summary>
@@ -3020,9 +3020,9 @@ ac22d50 Revert "add committed content"
 ```bash
 git fsck --lost-found
 git fsck --lost-found | grep "^dangling commit"
-git fsck --lost-found | grep "^dangling commit" | sed "s/^dangling commit //g"
-git fsck --lost-found | grep "^dangling commit" | sed "s/^dangling commit //g" | xargs git show -s --oneline
-git config --global alias.logLost '!git fsck --lost-found | grep "^dangling commit" | sed "s/^dangling commit //g" | xargs git show -s --oneline'
+git fsck --lost-found | grep "^dangling commit" | cut -c 17-
+git fsck --lost-found | grep "^dangling commit" | cut -c 17- | xargs git show -s --oneline
+git config --global alias.logLost '!git fsck --lost-found | grep "^dangling commit" | cut -c 17- | xargs git show -s --oneline'
 git logLost
 ```
 
@@ -3099,7 +3099,7 @@ dangling commit 9da3f78a2a5545431b165f44f07e0a2458d828dd
 dangling commit aafb3276cd90cacbadf4ad57612b5f222a45ab9f
 dangling commit bc3b90d08901404d69447c06715e0c7f92401c98
 dangling commit bde3cbeebaf96ae15ec7ca20f6032680caa3919d
-~ git fsck --lost-found | grep "^dangling commit" | sed "s/^dangling commit //g"
+~ git fsck --lost-found | grep "^dangling commit" | cut -c 17-
 Checking object directories: 100% (256/256), done.
 12c0de1cc8bd7cd898fdbb49a8c8b6807f58bfdb
 5680b2b1846d38b225c589b4184f372d140e5ee9
@@ -3129,7 +3129,7 @@ f57e5d30529810ac6a742bcc217a9fc53de6dcc7
 aafb3276cd90cacbadf4ad57612b5f222a45ab9f
 bc3b90d08901404d69447c06715e0c7f92401c98
 bde3cbeebaf96ae15ec7ca20f6032680caa3919d
-~ git fsck --lost-found | grep "^dangling commit" | sed "s/^dangling commit //g" | xargs git show -s --oneline
+~ git fsck --lost-found | grep "^dangling commit" | cut -c 17- | xargs git show -s --oneline
 Checking object directories: 100% (256/256), done.
 12c0de1 WIP on feature/the-new-new: 867fe5c add the-new-new area
 5680b2b Merge remote-tracking branch 'origin/master'
@@ -3159,7 +3159,7 @@ f57e5d3 Merge remote-tracking branch 'origin/master'
 aafb327 WIP on feature/the-new-new: 867fe5c add the-new-new area
 bc3b90d update config content
 bde3cbe WIP on feature/the-new-new: 867fe5c add the-new-new area
-~ git config --global alias.logLost '!git fsck --lost-found | grep "^dangling commit" | sed "s/^dangling commit //g" | xargs git show -s --oneline'
+~ git config --global alias.logLost '!git fsck --lost-found | grep "^dangling commit" | cut -c 17- | xargs git show -s --oneline'
 ~ git logLost
 Checking object directories: 100% (256/256), done.
 12c0de1 WIP on feature/the-new-new: 867fe5c add the-new-new area
